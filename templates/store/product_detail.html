@@ -71,10 +71,13 @@
  <b>Stokta Kalan:&nbsp;</b>{{ single_product.stock }} Adet
 </div>
 
-<hr class="mb-2">
+
 <b class="text-base text-md">Bu ürün hakkında:</b>
 <span class="text-base">{{ single_product.description | safe }} </span>
-<br><br>
+<br>
+
+<hr class="mb-2">
+<br>
 {% if single_product.stock <= 0 %}
 	<h5 class="text-xl text-gray-500"><b>Bu ürün satıştan kaldırılmıştır</b></h5>
 	<span class="text-base">Satıştan Kaldırıldığı Tarih: {{ single_product.modified_date }}</span>
