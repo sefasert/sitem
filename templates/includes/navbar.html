@@ -1,0 +1,108 @@
+{% load static %}
+
+<header class="section-header">
+
+<nav class="navbar p-md-0 navbar-expand-sm navbar-light border-bottom pl-1 flex">
+<div class="container">
+
+  <div class="navbar-collapse mx-auto">
+
+    <ul class="navbar-nav mr-auto">
+    </ul>
+
+    <span><i class="fa fa-whatsapp"></i> (0545)197-3471&nbsp;&nbsp;</span>
+
+    <a class="nav-link pl-0" href="https://www.google.com/maps/place/100.+Y%C4%B1l,+27.+Sk.+No:3,+34204+Ba%C4%9Fc%C4%B1lar%2F%C4%B0stanbul/@41.0602878,28.8544337,17z/data=!3m1!4b1!4m5!3m4!1s0x14caa553fa561565:0x1b20b973a5dcf7c0!8m2!3d41.0602878!4d28.8544337" target="_blank">
+      <i class="fa fa-map-marker"></i> 100. Yıl, 27. Sk. No:3 Bağcılar/İstanbul</a>
+      <span><i class="fa-solid fa-clock"></i> Hergün 10:00/21:00</span>
+
+  </div> <!-- navbar-collapse .// -->
+</div> <!-- container //  -->
+</nav>
+
+<section class="header-main border-bottom border-0">
+
+  <div class="container">
+
+<div class="row align-items-center">
+
+
+<!-- özel günler için>
+    <div class="col-lg col-sm col-md flex-grow-0">
+      <img class="logo" src="{% static 'images/ozel_gunler.png' %}">
+  </div>
+  <!-->
+
+
+  <div class="flex justify-center col-lg col-sm col-md col-6 flex-grow-0">
+    <div class="category-wrap dropdown d-inline-block float-right">
+<a href="{% url 'home' %}" class="btn btn-outline-primary hover:bg-blue-600">Anasayfa</a>
+
+
+
+
+
+    </div>  <!-- category-wrap.// -->
+  </div> <!-- col.// -->
+
+  <div class="pl-0 col-lg col-sm col-md col-6 flex-grow-0">
+
+    <button id="dropdownDefault" data-toggle="dropdown"  class="text-white bg-blue-600 hover:bg-blue-700  focus:outline-none font-medium rounded  px-3 py-2  inline-flex items-center" type="button">Kategoriler
+      <svg class="ml-2 w-4 h-4" aria-hidden="true" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+    </button>
+
+  <div class="dropdown-menu">
+    {% for category in links %}
+    <a class="dropdown-item" href="{{ category.get_url }}">{{ category.category_name }}</a>
+    {% endfor %}
+  </div>
+  </div>
+
+  <div class="col-lg  col-md-6 col-sm-12 col">
+    <form action="{% url 'search' %}" class="search" method="GET">
+      <div class="input-group">
+          <input type="search" class="form-control p-4 hover:bg-white rounded-lg focus:dark:placeholder-white/50 font-normal text-md bg-zinc-100 dark:bg-zinc-800  focus:bg-white focus:dark:bg-zinc-700 border-2 border-zinc-100 dark:!border-zinc-800  placeholder-zinc-400 dark:placeholder-zinc-600 text-black dark:text-white focus:shadow-lg focus:shadow-zinc-300 focus:dark:shadow-black/20 focus:dark:!border-zinc-600 focus:border-zinc-100" placeholder="ürün ara" name="keyword" id="anahtar">
+          <div class="relative">
+        <button type="submit" class="btn absolute z-10 rounded-lg px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white  right-2 bottom-1" aria-label="arama butonu">
+          Ara
+        </button>
+        </div>
+        </div>
+    </form> <!-- search-wrap .end// -->
+  </div> <!-- col.// -->
+
+
+  <div class="col-lg-3 col-sm-6 col-8 order-2 order-lg-3">
+        <div class="d-flex justify-content-end mb-3 mb-lg-0">
+          {% if user.id is None %}
+          <div class="widget-header">
+            <small class="">&nbsp;</small>
+            <div>
+              <a href="{% url 'login' %}">Giriş Yap</a> <span class="dark-transp"> | </span>
+              <a href="{% url 'register' %}">Kaydol</a>
+            </div>
+          </div>
+          {% else %}
+          <div class="widget-header">
+          {{ user.first_name }} {{user.last_name}}
+            <div>
+              <a href="{% url 'dashboard' %}">Panel</a> <span class="dark-transp"> | </span>
+              <a href="{% url 'logout' %}">Çıkış Yap</a>
+            </div>
+          </div>
+          {% endif %}
+          <a href="{% url 'cart' %}" class="widget-header pl-3 ml-3">
+            <div class="icon icon-sm rounded-circle border"><i class="fa fa-shopping-cart"></i></div>
+            <span class="badge badge-pill badge-danger notify">{{ cart_count }}</span>
+          </a>
+        </div> <!-- widgets-wrap.// -->
+      </div> <!-- col.// -->
+
+</div> <!-- row.// -->
+
+  </div> <!-- container.// -->
+
+</section> <!-- header-main .// -->
+
+</header> <!-- section-header.// -->

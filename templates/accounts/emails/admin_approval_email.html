@@ -1,0 +1,11 @@
+{% autoescape off %}
+
+Sayın {{user.first_name}} {{user.last_name}},
+
+{% if is_ordered   %}
+Siparişiniz Onaylandı - Engin Elektronik Tv
+{% else %}
+Siparişiniz Onaylanmadı, Lütfen iletişime geçin - Engin Elektronik Tv
+{% endif %}
+
+{% endautoescape %}

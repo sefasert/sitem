@@ -1,0 +1,160 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}
+{% if categories.category_name %}
+{{ categories.category_name }} - {{ setting.title }}
+{% else %}
+Arama - Engin Elektronik
+{% endif %}
+{% endblock %}
+
+{% block description %}Tv satışı-tamiri, kart satışı-tamiri, kumanda satışı-tamiri, tv ayak satışı, iptv cihaz satışı-kodu, 2.el tv satışı, kablo satışı, uydu alıcısı satışı{% endblock %}
+
+{% block content %}
+
+<!-- gelişmiş arama yap -->
+					<div class="container">
+
+            <form method="GET" action="{% url 'filter_results' %}">
+	<div class="col-lg col-sm col-md col-6 flex-grow-0 bg-zinc-50">
+							Marka:
+							 {{ myFilter.form.brand }}
+							Kategori:
+	              {{ myFilter.form.category }}
+
+							<button class="btn btn-light" type="submit">Ara</button>
+		</div>
+            </form>
+</div>
+
+
+
+<!-- ========================= SECTION CONTENT ========================= -->
+<section class="section-content padding-y" style="padding-top:10px">
+<div class="container">
+<div class="row">
+	<aside class="col-md-3 md:flex" style="margin-left: -15px;">
+<div class="flex card w-72">
+	<article class="filter-group">
+		<header class="card-header">
+			<i class="icon-control fa fa-list"></i>
+				<h6 class="text-md font-bold text-blue-600">Kategoriler</h6>
+		</header>
+
+		<div class="filter-content show" id="collapse_1">
+			<div class="card-body pl-0" style="margin-top: -15px; margin-left: -3px">
+				<ul class="list-menu">
+			{% for category in links %}
+					<div class="btn-group dropright">
+ <li><button type="button" class="btn btn-white" aria-label="btn btn-white" style="margin: 7px">
+	 <a href="{{ category.get_url}}">{{ category.category_name }}</a>
+ </button></li>
+		<button type="button" class="btn btn-white dropdown-toggle" data-toggle="dropdown"
+		aria-expanded="false" aria-label="btn btn-white dropdown" style="margin: 7px;  left: -24px">
+		</button>
+						<div class="dropdown-menu">
+								{% for rs in category.product_set.all %}
+										<li><a class="dropdown-item" href="{{ rs.get_absolute_url }}">{{ rs.product_name }}</a></li>
+								{% endfor %}
+						</div>
+					</div>
+		 {% endfor %}
+				</ul>
+
+			</div> <!-- card-body.// -->
+		</div>
+
+	</article> <!-- filter-group  .// -->
+
+</div> <!-- card.// -->
+
+	</aside> <!-- col.// -->
+	<main class="col-md-9">
+
+<header class="border-bottom mb-4 pb-3">
+		<div class="form-inline">
+			{% if categories %}
+			<span class="mr-md-auto"> <b> {{ product_count }} </b> ürün bulundu </span>
+{% endif %}
+		</div>
+		<ul class="breadcrumb">
+{% if categories %}
+  <li class="active"><a href="{% url 'home'  %}">Anasayfa&nbsp;</a></li>
+	<li>»&nbsp;{{ categories }}</li>
+	{% else %}
+	<li>aramaya göre çıkan sonuçlar:</li>
+{% endif %}
+</ul>
+</header><!-- sect-heading -->
+
+<div class="row">
+	{% if products %}
+	{% for product in products %}
+	<div class="col-md-4">
+		<figure class="card card-product-grid">
+			<div class="img-wrap">
+				<a href="{{ product.get_absolute_url }}"> <img src="{{ product.images.url }}" class="rounded hover:scale-105 transition duration-1000 ease-in-out" alt="{{ product.product_name }}" width="1000" height="1000"></a>
+			</div> <!-- img-wrap.// -->
+			<figcaption class="info-wrap">
+				<div class="fix-height">
+					<span class="badge badge-pill badge-light" style="font-size:11px; margin-left: -5px; margin-top:-3px">Stok: {{product.stock}} Adet</span>
+					<a href="{{ product.get_absolute_url }}" class="title">{{ product.product_name }}</a>
+					<div class="price-wrap mt-2">
+						{% if product.price <= 0 %}
+							<h5 style="color: gray"><b>Stokta kalmadı, sipariş için iletişime geçin</b></h5>
+							{% else %}
+
+					</div> <!-- price-wrap.// -->
+				</div>
+							</figcaption>
+							<div class="col">
+				<span class="price" style="margin-right: 70px;">{{ product.price }} ₺</span>
+				{% endif %}
+				<a href="{{ product.get_absolute_url }}" class="btn btn-primary"
+				style="width: 120px; margin-bottom: 5px;">İncele</a>
+	</div>
+		</figure>
+	</div> <!-- col.// -->
+	{% endfor %}
+	{% else %}
+</div> <!-- row end.// -->
+<img src="{% static 'images/notfound.png' %}" style="margin-left: 130px; margin-top: -20px;"></img>
+<h2 class="font-semibold text-xl" style="margin-left: 60px;">Arama bulunamadı.</h2>
+</div>
+ {% endif %}
+</div>
+
+
+<nav class="mt-4" aria-label="Page navigation sample">
+	{% if products.has_other_pages %}
+  <ul class="pagination">
+		{% if products.has_previous %}
+    <li class="page-item"><a class="page-link" href="?page={{ products.previous_page_number }}">Önceki</a></li>
+		{% else %}
+		<li class="page-item disabled"><a class="page-link" href="#">Önceki</a></li>
+		{% endif %}
+
+		{% for i in products.paginator.page_range %}
+		{% if products.number == i %}
+    <li class="page-item active"><a class="page-link" href="#">{{ i }}</a></li>
+		{% else %}
+		<li class="page-item"><a class="page-link" href="?page={{i}}">{{ i }}</a></li>
+		{% endif %}
+		{% endfor %}
+
+		{% if products.has_next %}
+    <li class="page-item"><a class="page-link" href="?page={{ products.next_page_number }}">Sonraki</a></li>
+		{% else %}
+		<li class="page-item disabled"><a class="page-link" href="#">Sonraki</a></li>
+		{% endif %}
+  </ul>
+		{% endif %}
+</nav>
+
+ <!-- container .//  -->
+</section>
+<!-- ========================= SECTION CONTENT END// ======== !-->
+
+
+{% endblock %}

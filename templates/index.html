@@ -1,0 +1,80 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+{% block description %}Tv satışı-tamiri, kart satışı-tamiri, kumanda satışı-tamiri, tv ayak satışı, iptv cihaz satışı-kodu, 2.el tv satışı, kablo satışı, uydu alıcısı satışı{% endblock %}
+{% block keywords %}engin elektronik, televizyon, tv, kumanda, tv tamiri, televizyon kanalı, uydu ayarlama, kanal sıralama, kanal listeleme, iptv, iptv kod, cihaz, televizyon ayağı, tv ayağı, istanbul bağcılar, istanbul yüzyıl, elektronik ürünler, elektronik, tv kartı, televizyon kart tamiri, tv uydu{% endblock %}
+{% block title %}Engin Elektronik Tv.Hastanesi {% endblock %}
+
+
+{% block content %}
+
+
+<!-- ========================= SECTION PAGETOP ========================= -->
+<section class="section-pagetop bg mt-3" style="background-color: white;">
+
+<div class="container">
+	<div class="row">
+
+		<aside class="col-md-3 md:flex" style="margin-left: -15px;">
+	<div class="flex card w-72">
+		<article class="filter-group">
+			<header class="card-header">
+				<i class="icon-control fa fa-list"></i>
+					<h6 class="text-md font-bold text-blue-600">Kategoriler</h6>
+			</header>
+
+			<div class="filter-content show" id="collapse_1">
+				<div class="card-body pl-0" style="margin-top: -15px; margin-left: -3px">
+					<ul class="list-menu">
+				{% for category in links %}
+						<div class="btn-group dropright">
+	 <li><button type="button" class="btn btn-white" aria-label="btn btn-white" style="margin: 7px">
+		 <a href="{{ category.get_url}}">{{ category.category_name }}</a>
+	 </button></li>
+		  <button type="button" class="btn btn-white dropdown-toggle" data-toggle="dropdown"
+			aria-expanded="false" aria-label="btn btn-white dropdown" style="margin: 7px;  left: -24px">
+			</button>
+						  <div class="dropdown-menu">
+									{% for rs in category.product_set.all %}
+								    	<li><a class="dropdown-item" href="{{ rs.get_absolute_url }}">{{ rs.product_name }}</a></li>
+									{% endfor %}
+						  </div>
+						</div>
+			 {% endfor %}
+					</ul>
+
+				</div> <!-- card-body.// -->
+			</div>
+
+		</article> <!-- filter-group  .// -->
+
+	</div> <!-- card.// -->
+
+		</aside> <!-- col.// -->
+
+
+<aside class="col-md-9">
+
+
+
+
+
+     {% include 'list.html' %}
+
+
+<a href="#" class="bas" style="width:45px; height:45px; display:none; background-color: #a1d5e3; border-radius: 50px; box-shadow: 0 2px 8px 0 rgb(0 0 0 / 15%); position:fixed; padding:8px; z-index:100; right:0; bottom:0; margin-bottom: 10px; margin-right:3px; opacity:0.9;">
+<img src="{% static 'images/up.svg' %}" alt="yukarı"></img>
+</a>
+
+
+
+</aside>
+
+	</div> <!-- row // -->
+</div> <!-- container //  -->
+</section>
+<!-- ========================= SECTION INTRO END// ========================= -->
+
+
+{% endblock %}

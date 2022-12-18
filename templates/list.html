@@ -1,0 +1,44 @@
+{% load static %}
+
+<div class="row md:flex" style="margin-top: 3px; margin-left:-12px;">
+	{% if products %}
+	{% for product in products %}
+	<div class="col-md-4">
+		<figure class="card card-product-grid">
+			<div class="img-wrap">
+				<a href="{{ product.get_absolute_url }}"> <img class="rounded hover:scale-105 transition duration-1000 ease-in-out" src="{{ product.images.url }}" alt="{{ product.product_name }}" width="1000" height="1000"></a>
+			</div> <!-- img-wrap.// -->
+			<figcaption class="info-wrap">
+				<div class="fix-height">
+					<span class="badge badge-pill badge-light" style="font-size:11px; margin-left: -5px; margin-top:-3px">Stok: {{product.stock}} Adet</span>
+					<a href="{{ product.get_absolute_url }}" class="title">{{ product.product_name }}</a>
+					<div class="price-wrap mt-2">
+						{% if product.price <= 0 %}
+							<h5 style="color: gray"><b>Stokta kalmadı, sipariş için iletişime geçin</b></h5>
+							{% else %}
+
+					</div> <!-- price-wrap.// -->
+				</div>
+							</figcaption>
+							<div class="col">
+				<span class="price" style="margin-right: 70px;">{{ product.price }} ₺</span>
+				{% endif %}
+				<a href="{{ product.get_absolute_url }}" class="btn btn-primary"
+				style="width: 120px; margin-bottom: 5px;">İncele</a>
+	</div>
+		</figure>
+	</div> <!-- col.// -->
+	{% endfor %}
+
+ {% endif %}
+</div>
+
+
+{% if products.has_next %}
+    	<div id="load-more" style="text-align:center">
+            <button class="btn hover:bg-slate-50" style="margin-bottom: 50px; margin-top: 30px;  border-radius: 50px; box-shadow: 0 2px 8px 0 rgb(0 0 0 / 15%);"
+                    hx-get="{% url 'home' %}?page={{products.next_page_number}}"
+                    hx-target="#load-more"
+                    hx-swap="outerHTML">daha fazla yükle<img class="htmx-indicator inline" src="{% static 'images/load-more.svg' %}" alt="load-more"></button>
+        </div>
+{% endif %}

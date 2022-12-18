@@ -1,0 +1,119 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %} Sipariş Adres İşlemleri - Engin Elektronik  {% endblock %}
+
+{% block content %}
+
+<section class="section-content padding-y bg">
+<div class="container">
+
+<!-- ============================ COMPONENT 1 ================================= -->
+<div class="row">
+	<aside class="col-lg-5">
+<div class="card">
+<div class="card-body">
+  <h4 class="card-title mb-3 text-xl font-semibold">Fatura Adresi:</h4>
+<form action="" method="POST">
+    {% csrf_token %}
+		<div class="form-row">
+	  <div class="col form-group">
+	    <label for="">Ad</label>
+	    <input type="text" name="first_name" value="{{ user.first_name }}" class="form-control" required>
+	</div>
+	<div class="col form-group">
+	  <label for="">Soyad</label>
+	  <input type="text" name="last_name" value="{{ user.last_name }}" class="form-control" required>
+	</div>
+	  </div>
+	  <div class="form-row">
+	    <div class="col form-group">
+	      <label for="">Email</label>
+	      <input type="text" name="email" value="{{ user.email }}" class="form-control" required>
+	  </div>
+	  <div class="col form-group">
+	    <label for="">Telefon</label>
+	    <input type="text" name="phone" value="{{ user.phone_number }}" maxlength="11" class="form-control" required>
+	  </div>
+	    </div>
+	    <div class="form-row">
+	      <div class="col form-group">
+	        <label for="">Adres</label>
+	        <input type="text" name="address_line" class="form-control" required>
+	    </div>
+	    </div>
+			<div class="form-row">
+				<div class="col form-group">
+					<label for="">Posta Kodu</label>
+					<input type="text" name="postal_code" class="form-control" required>
+			</div>
+			</div>
+	    <div class="form-row">
+	      <div class="col form-group">
+	        <label for="">İl</label>
+	        <input type="text" name="state" class="form-control" required>
+	    </div>
+	    <div class="col form-group">
+	      <label for="">İlçe</label>
+	      <input type="text" name="city" class="form-control" required>
+	    </div>
+	      </div>
+	</div>
+	</div> <!-- card.// -->
+		</aside> <!-- col.// -->
+		<aside class="col-lg-7">
+			<div class="card">
+			<div class="card-body">
+	      <table class="table w-full">
+	      <thead class="text-muted">
+	      <tr class="small text-uppercase">
+	        <th class="">Ürünler</th>
+	        <th class="-ml-7">Adet</th>
+	        <th class="">Fiyat</th>
+	      </tr>
+	      </thead>
+	      <tbody>
+	      {% for cart_item in cart_items %}
+	      <tr>
+	      	<td>
+	      		<figure class="itemside align-items-center">
+	      			<div class="aside"><img src="{{ cart_item.product.images.url }}" class="img-sm rounded -ml-6"></div>
+	      			<figcaption class="info">
+	      				<a href="{{ cart_item.product.get_absolute_url }}" class="title text-dark -ml-6">{{ cart_item.product.product_name }}</a>
+	      			</figcaption>
+	      		</figure>
+	      	</td>
+	      	<td>
+	          <span class="ml-4">{{ cart_item.quantity }}</span>
+	      	</td>
+	      	<td>
+	      		<div class="price-wrap">
+	      			<var class="price">{{ cart_item.sub_total }} ₺</var><br>
+	      			<small class="text-muted">1 adeti</small><br>
+							<small>{{ cart_item.product.price }} ₺</small>
+	      		</div> <!-- price-wrap .// -->
+	      	</td>
+	      </tr>
+	      {% endfor %}
+	      </tbody>
+	      </table>
+				<hr>
+				<div class="card" style="border:0px">
+				<div class="card-body">
+					<dl class="dlist-align">
+						<dt>Toplam fiyat:</dt>
+						<dd class="text-right ml-10"><strong>{{ total }} ₺</strong></dd>
+					</dl>
+				</div> <!-- card-body.// -->
+				</div> <!-- card.// -->
+				<button type="submit" class="btn btn-primary btn-block bg-blue-600 hover:bg-blue-700">Siparişi Gönder</button>
+</form>
+			<a href="{% url 'cart' %}" class="btn btn-light btn-block">Sepete Geri Dön</a>
+		</div> <!-- card-body.// -->
+		</div> <!-- card.// -->
+</aside> <!-- col.// -->
+</div> <!-- row.// -->
+</div> <!-- container .//  -->
+</section>
+<!-- ========================= SECTION CONTENT END// ========================= -->
+{% endblock %}

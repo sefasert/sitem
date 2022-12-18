@@ -1,0 +1,72 @@
+
+{% load static %}
+<!-- ========================= FOOTER ========================= -->
+<footer class="section-footer border-top">
+	<div class="container">
+		<section class="footer-bottom border-top row flex">
+			<div class="col-md-3 pl-0 mr-10">
+				<span class="ml-1">&copy Engin Elektronik</span>
+			</div>
+
+
+				<span class="ml-1"><i class="fa fa-whatsapp"></i> (0545)197-3471</span>&nbsp;&nbsp;
+				<a class="ml-1" href="https://www.google.com/maps/place/100.+Y%C4%B1l,+27.+Sk.+No:3,+34204+Ba%C4%9Fc%C4%B1lar%2F%C4%B0stanbul/@41.0602878,28.8544337,17z/data=!3m1!4b1!4m5!3m4!1s0x14caa553fa561565:0x1b20b973a5dcf7c0!8m2!3d41.0602878!4d28.8544337" target="_blank">
+					<i class="fa fa-map-marker"></i> 100. Yıl, 27. Sk. No:3 Bağcılar/İstanbul</a>&nbsp;&nbsp;
+					<span class="ml-1"><i class="fa-solid fa-clock"></i> Hergün 10:00/21:00</span>
+
+		</section>
+	</div><!-- //container -->
+</footer>
+<!-- ========================= FOOTER END // ========================= -->
+
+<!-- thumbnail resim geçiş -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js" async></script>
+<script>
+	$(document).ready(function(){
+		$('.thumb a').click(function(e){
+			e.preventDefault();
+			$('.mainImage img').attr('src', $(this).attr("href"));
+		})
+	})
+</script>
+
+<!-- şifre göster -->
+<script>
+	$(document).ready(function() {
+    $("#show_hide_password a").on('click', function(event) {
+        event.preventDefault();
+        if($('#show_hide_password input').attr("type") == "text"){
+            $('#show_hide_password input').attr('type', 'password');
+            $('#show_hide_password i').addClass( "fa-eye-slash" );
+            $('#show_hide_password i').removeClass( "fa-eye" );
+        }else if($('#show_hide_password input').attr("type") == "password"){
+            $('#show_hide_password input').attr('type', 'text');
+            $('#show_hide_password i').removeClass( "fa-eye-slash" );
+            $('#show_hide_password i').addClass( "fa-eye" );
+        }
+    });
+});
+</script>
+
+
+<!-- yukarı ok -->
+<script>
+    $(window).scroll(function() {
+        if ($(this).scrollTop() > 600) {
+            $(".bas").fadeIn();
+        } else {
+            $(".bas").fadeOut();
+        }
+    })
+
+    $(".bas").click(function() {
+        $("html, body").animate({
+            scrollTop: 0
+        }, 600);
+        return false;
+    })
+</script>
+
+
+</body>
+</html>
