@@ -91,8 +91,13 @@
 
 			<hr>
 			{% if user.id is None %}
-			<button type="button" class="btn btn-primary btn-block mt-4" disabled> Sipariş Vermek İçin Kaydol</button>
+			<button type="button" class="btn btn-primary btn-block mt-2" disabled> Sipariş Vermek İçin Kaydol</button>
 			<span>Hesabın var mı? <a href="{% url 'login' %}">Giriş Yap</a></span>
+
+			<a href="https://wa.me/905451973471" target="_blank">
+				<button type="button" class="btn bg-emerald-600 hover:bg-emerald-700 text-white focus:ring-3 mt-1">
+					<i class="fa fa-whatsapp"></i> Whatsapp Sipariş (0545-197-3471)</button></a>
+
 			{% else %}
 			<a href="{% url 'checkout' %}" class="btn btn-primary btn-block mt-4"> Sipariş Ver</a>
 			{% endif %}
