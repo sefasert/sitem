@@ -129,7 +129,6 @@ def checkout(request):
         if form.is_valid():
             data = Order()
             data.first_name = form.cleaned_data["first_name"]
-            data.last_name = form.cleaned_data["last_name"]
             data.phone = form.cleaned_data["phone"]
             data.user_id = current_user.id
             data.email = form.cleaned_data["email"]

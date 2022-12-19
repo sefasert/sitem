@@ -18,43 +18,34 @@
     {% csrf_token %}
 		<div class="form-row">
 	  <div class="col form-group">
-	    <label for="">Ad</label>
+	    <label for="">Ad Soyad:</label>
 	    <input type="text" name="first_name" value="{{ user.first_name }}" class="form-control" required>
-	</div>
-	<div class="col form-group">
-	  <label for="">Soyad</label>
-	  <input type="text" name="last_name" value="{{ user.last_name }}" class="form-control" required>
 	</div>
 	  </div>
 	  <div class="form-row">
 	    <div class="col form-group">
-	      <label for="">Email</label>
+	      <label for="">Email:</label>
 	      <input type="text" name="email" value="{{ user.email }}" class="form-control" required>
 	  </div>
 	  <div class="col form-group">
-	    <label for="">Telefon</label>
+	    <label for="">Telefon:</label>
 	    <input type="text" name="phone" value="{{ user.phone_number }}" maxlength="11" class="form-control" required>
 	  </div>
 	    </div>
 	    <div class="form-row">
 	      <div class="col form-group">
-	        <label for="">Adres</label>
+	        <label for="">Adres:</label>
 	        <input type="text" name="address_line" class="form-control" required>
 	    </div>
 	    </div>
-			<div class="form-row">
-				<div class="col form-group">
-					<label for="">Posta Kodu</label>
-					<input type="text" name="postal_code" class="form-control" required>
-			</div>
-			</div>
+
 	    <div class="form-row">
 	      <div class="col form-group">
-	        <label for="">İl</label>
+	        <label for="">İl:</label>
 	        <input type="text" name="state" class="form-control" required>
 	    </div>
 	    <div class="col form-group">
-	      <label for="">İlçe</label>
+	      <label for="">İlçe:</label>
 	      <input type="text" name="city" class="form-control" required>
 	    </div>
 	      </div>

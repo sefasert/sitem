@@ -9,7 +9,7 @@ class RegistrationForm(forms.ModelForm):
 
     class Meta:
         model = Account
-        fields = ["first_name", "last_name", "phone_number", "email", "password"]
+        fields = ["first_name", "phone_number", "email", "password"]
 
     def clean(self):
         cleaned_data = super(RegistrationForm, self).clean()
@@ -26,7 +26,6 @@ class RegistrationForm(forms.ModelForm):
     def __init__(self, *args, **kwargs):
         super(RegistrationForm, self).__init__(*args, **kwargs)
         self.fields["first_name"]
-        self.fields["last_name"]
         self.fields["phone_number"]
         self.fields["email"]
         for field in self.fields:
@@ -35,7 +34,7 @@ class RegistrationForm(forms.ModelForm):
 class UserForm(forms.ModelForm):
     class Meta:
         model = Account
-        fields = ("first_name", "last_name", "phone_number")
+        fields = ("first_name", "phone_number")
 
     def __init__(self, *args, **kwargs):
         super(UserForm, self).__init__(*args, **kwargs)
@@ -45,7 +44,7 @@ class UserForm(forms.ModelForm):
 class UserProfileForm(forms.ModelForm):
     class Meta:
         model = UserProfile
-        fields = ("address_line", "city", "state", "postal_code")
+        fields = ("address_line", "city", "state")
 
     def __init__(self, *args, **kwargs):
         super(UserProfileForm, self).__init__(*args, **kwargs)

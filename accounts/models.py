@@ -15,7 +15,6 @@ class MyAccountManager(BaseUserManager):
             email       = self.normalize_email(email),
             username    = username,
             first_name  = first_name,
-            last_name   = last_name
         )
 
         user.set_password(password)
@@ -29,7 +28,6 @@ class MyAccountManager(BaseUserManager):
             username    = username,
             password    = password,
             first_name  = first_name,
-            last_name   = last_name
         )
 
         user.is_admin       = True
@@ -42,7 +40,6 @@ class MyAccountManager(BaseUserManager):
 
 class Account(AbstractBaseUser):
     first_name      = models.CharField(max_length=50)
-    last_name       = models.CharField(max_length=50)
     username        = models.CharField(max_length=50, unique=True)
     email           = models.EmailField(max_length=100, unique=True)
     phone_number    = models.CharField(max_length=50)
@@ -55,7 +52,7 @@ class Account(AbstractBaseUser):
     is_superadmin   = models.BooleanField(default=False)
 
     USERNAME_FIELD = "email"
-    REQUIRED_FIELDS = ["username", "first_name", "last_name"]
+    REQUIRED_FIELDS = ["username", "first_name"]
 
     objects = MyAccountManager()
 
@@ -74,7 +71,6 @@ class UserProfile(models.Model):
     address_line = models.CharField(blank=True, max_length=150)
     city         = models.CharField(blank=True, max_length=50)
     state        = models.CharField(blank=True, max_length=50)
-    postal_code  = models.CharField(blank=True, max_length=10)
 
     def __str__(self):
         return self.user.first_name
