@@ -19,6 +19,8 @@ from carts.views import _cart_id
 from carts.models import Cart,CartItem
 
 from orders.models import Order, OrderProduct
+
+from django.views.decorators.csrf import requires_csrf_token
 # Create your views here.
 
 def register(request):
@@ -77,7 +79,7 @@ def activate(request, uidb64, token):
         return redirect("register")
 
 
-
+@requires_csrf_token
 def login(request):
     if request.user.is_authenticated:
         return redirect("home")
