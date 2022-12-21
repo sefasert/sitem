@@ -6,14 +6,14 @@
 		<section class="footer-bottom border-top row flex">
 			<div class="col-md-3 pl-0 mr-10">
 
+				{% for ayarlar in ayarlar %}
 				<span class="ml-1">{{ ayarlar.copy }}</span>
 			</div>
-
-
 				<span class="ml-1"><i class="fa fa-phone"></i> {{ ayarlar.telefon }}</span>&nbsp;&nbsp;
 				<a class="ml-1" href="https://goo.gl/maps/U6h5JE1MKjGA6XeK8" target="_blank">
 					<i class="fa fa-map-marker-alt"></i> {{ ayarlar.adres }}</a>&nbsp;&nbsp;
 					<span class="ml-1"><i class="fa-solid fa-clock"></i> {{ ayarlar.saat }}</span>
+{% endfor %}
 
 		</section>
 	</div><!-- //container -->
