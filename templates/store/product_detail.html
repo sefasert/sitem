@@ -12,7 +12,7 @@
 
 	<ul class="breadcrumb" style="margin-top: -15px; margin-bottom: 5px;">
 		<li><a class="text-normal" href="{% url 'home' %}">Anasayfa&nbsp;»</a></li>
-		<li><a  class="text-normal" href="{{ categories.get_url }}">&nbsp;{{ categories.category_name }} »&nbsp;</a></li>
+		<li><a class="text-normal" href="{{ categories.get_url }}">&nbsp;{{ categories.category_name }} »&nbsp;</a></li>
 		<li class="text-normal">{{ single_product.product_name }}</li>
 	</ul>
 	<span class="text-normal">Satışa Sunulduğu Tarih: {{ single_product.created_date }}</span>

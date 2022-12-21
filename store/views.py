@@ -26,8 +26,7 @@ def store(request, category_slug=None):
     categories = None
     products = None
     setting = Setting.objects.get(pk=1)
-    products   = None
-    setting    = Setting.objects.get(pk=1)
+
 
     if category_slug !=None:
         categories     = get_object_or_404(Category, slug=category_slug)
@@ -108,8 +107,7 @@ def home(request, category_slug=None):
     categories = None
     products = None
     setting = Setting.objects.get(pk=1)
-    products   = None
-    setting    = Setting.objects.get(pk=1)
+
 
     if category_slug !=None:
         categories     = get_object_or_404(Category, slug=category_slug)
