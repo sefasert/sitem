@@ -2,8 +2,7 @@ from .models import Category, Setting
 
 def menu_links(request):
     links = Category.objects.all()
-    setting = Setting.objects.all()
-    return dict(links=links, setting=setting)
+    return dict(links=links)
 
 
 def context(request):
