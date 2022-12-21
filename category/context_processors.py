@@ -1,8 +1,9 @@
-from .models import Category
+from .models import Category, Setting
 
 def menu_links(request):
     links = Category.objects.all()
-    return dict(links=links)
+    setting = Setting.objects.all()
+    return dict(links=links, setting=setting)
 
 
 def context(request):

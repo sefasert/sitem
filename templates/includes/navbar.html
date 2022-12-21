@@ -9,14 +9,14 @@
 
     <ul class="navbar-nav mr-auto">
     </ul>
-
+{% for setting in setting %}
     <span><i class="fa fa-phone"></i> {{ setting.telefon }}&nbsp;&nbsp;</span>
 
 
     <a class="nav-link pl-0" href="https://goo.gl/maps/U6h5JE1MKjGA6XeK8" target="_blank">
       <i class="fa fa-map-marker-alt"></i> {{ setting.adres }}</a>
       <span><i class="fa-solid fa-clock"></i> {{ setting.saat }}</span>
-
+{% endfor %}
   </div> <!-- navbar-collapse .// -->
 </div> <!-- container //  -->
 </nav>

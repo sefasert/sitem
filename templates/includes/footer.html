@@ -5,6 +5,7 @@
 	<div class="container">
 		<section class="footer-bottom border-top row flex">
 			<div class="col-md-3 pl-0 mr-10">
+				{% for setting in setting %}
 				<span class="ml-1">{{ setting.copy }}</span>
 			</div>
 
@@ -13,7 +14,7 @@
 				<a class="ml-1" href="https://goo.gl/maps/U6h5JE1MKjGA6XeK8" target="_blank">
 					<i class="fa fa-map-marker-alt"></i> {{ setting.adres }}</a>&nbsp;&nbsp;
 					<span class="ml-1"><i class="fa-solid fa-clock"></i> {{ setting.saat }}</span>
-
+{% endfor %}
 		</section>
 	</div><!-- //container -->
 </footer>
