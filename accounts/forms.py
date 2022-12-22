@@ -6,10 +6,11 @@ from django.contrib.auth import password_validation
 class RegistrationForm(forms.ModelForm):
     password = forms.CharField(widget=forms.PasswordInput(attrs={"class": "form-control"}), help_text=password_validation.password_validators_help_text_html)
     confirm_password = forms.CharField(widget=forms.PasswordInput(attrs={"placeholder": "tekrar şifre girin", "class": "form-control" }))
+    email = forms.CharField(widget=forms.TextInput(attrs={"placeholder": "(email onayı için)", "class": "form-control" }))
 
     class Meta:
         model = Account
-        fields = ["first_name", "phone_number", "email", "password"]
+        fields = ["first_name", "email", "password"]
 
     def clean(self):
         cleaned_data = super(RegistrationForm, self).clean()
@@ -26,7 +27,6 @@ class RegistrationForm(forms.ModelForm):
     def __init__(self, *args, **kwargs):
         super(RegistrationForm, self).__init__(*args, **kwargs)
         self.fields["first_name"]
-        self.fields["phone_number"]
         self.fields["email"]
         for field in self.fields:
             self.fields[field].widget.attrs["class"] = "form-control"
@@ -34,7 +34,7 @@ class RegistrationForm(forms.ModelForm):
 class UserForm(forms.ModelForm):
     class Meta:
         model = Account
-        fields = ("first_name", "phone_number")
+        fields = ("first_name",)
 
     def __init__(self, *args, **kwargs):
         super(UserForm, self).__init__(*args, **kwargs)
