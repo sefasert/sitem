@@ -25,17 +25,19 @@
 <article class="gallery-wrap">
 	<div class="img-big-wrap mainImage">
 <center>
-	<img src="{{ single_product.images.url }}" alt="ürün resmi:{{single_product.product_name}}" style="height:360px;"></img>
-	<a href="{{ single_product.images.url }}" target="_blank"><i class="fa-solid fa-magnifying-glass"></i> görseli büyütmek için tıkla</a>
+	<img src="{{ single_product.images.url }}" alt="ürün resmi" style="height:360px;"></img>
+
+	<a href="{{ single_product.images.url }}" target="_blank">
+		<i class="fa-solid fa-magnifying-glass"></i> görseli büyütmek için tıkla</a>
 </center>
 	</div> <!-- img-big-wrap.// -->
 </article> <!-- gallery-wrap .end// -->
 
 <ul class="thumb">
 	<li>
-		<a href="{{ single_product.images.url }}" target="mainImage"><img src="{{ single_product.images.url }}" class="inline rounded-lg mr-2" alt="Product Image"></a>
+		<a href="{{ single_product.images.url }}"><img src="{{ single_product.images.url }}" class="inline rounded-lg mr-2" alt="Product Image"></img></a>
 		{% for i in product_gallery %}
-		<a href="{{i.image.url}}" target="mainImage"><img src="{{i.image.url}}" class="inline rounded-lg" alt="Product Image_Small"></a>
+		<a href="{{i.image.url}}"><img src="{{i.image.url}}" class="inline rounded-lg" alt="Product Image_Small"></img></a>
 		{% endfor %}
 		</li>
 	</ul>
