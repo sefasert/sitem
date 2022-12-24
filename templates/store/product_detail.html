@@ -13,7 +13,7 @@
 	<ul class="breadcrumb" style="margin-top: -15px; margin-bottom: 5px;">
 		<li><a class="text-normal" href="{% url 'home' %}">Anasayfa&nbsp;»</a></li>
 		<li><a class="text-normal" href="{{ categories.get_url }}">&nbsp;{{ categories.category_name }} »&nbsp;</a></li>
-		<li class="text-normal">{{ single_product.product_name }}</li>
+		<li class="text-semibold">{{ single_product.product_name }}</li>
 	</ul>
 	<span class="text-normal">Satışa Sunulduğu Tarih: {{ single_product.created_date }}</span>
 
@@ -65,7 +65,7 @@
 				{% csrf_token %}
 <article class="content-body" style="margin-left: -25px;">
 
-<h2 class="flex text-3xl font-bold mb-2 mt-2">{{ single_product.product_name }}</h2>
+<h2 class="flex text-3xl font-bold mb-2 mt-1.5">{{ single_product.product_name }}</h2>
 
 <div class="mb-3">
  <b>Marka:&nbsp;</b>{{ single_product.brand }}<br>

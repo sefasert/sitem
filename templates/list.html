@@ -4,7 +4,7 @@
 	{% if products %}
 	{% for product in products %}
 	<div class="col-md-4">
-		<figure class="card card-product-grid">
+		<figure class="card card-product-grid rounded">
 			<div class="img-wrap">
 				<a href="{{ product.get_absolute_url }}"> <img class="rounded hover:scale-105 transition duration-1000 ease-in-out" src="{{ product.images.url }}" alt="{{ product.product_name }}" width="1000" height="1000"></a>
 			</div> <!-- img-wrap.// -->
@@ -12,7 +12,7 @@
 				<div class="fix-height">
 					<span class="badge badge-pill badge-light" style="font-size:11px; margin-left: -5px; margin-top:-3px">Stok: {{product.stock}} Adet</span>
 
-					<div style="margin-left: -5px; margin-top: 215px;" class="badge badge-pill badge-light hover:bg-gray-300">
+					<div style="margin-left: -5px; margin-top: 216px;" class="badge badge-pill badge-light hover:bg-gray-300">
 					<a href="{{ product.category.get_url }}" class="font-semibold hover:text-gray-700">{{ product.category }}</a>
 					</div>
 
