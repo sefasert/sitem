@@ -19,12 +19,10 @@ class Product(models.Model):
         ("CVS", "cvs"),
         ("VESTEL", "vestel"),
         ("PHILIPS", "philips"),
-        ("TCL", "tcl"),
         ("TECHNOBOX", "technobox"),
         ("Dreamstar", "dreamstar"),
         ("SAMSUNG", "samsung"),
         ("SANYO", "sanyo"),
-        ("TELENOVA", "telenova"),
         ("SUNNY", "sunny"),
         ("AWOX", "awox"),
         ("Dijitsu", "dijitsu"),
@@ -47,6 +45,7 @@ class Product(models.Model):
         ("TOSHIBA", "toshiba"),
         ("Panasonic", "panasonic"),
         ("Nordmende", "nordmende"),
+        ("Lifemaxx", "lifemaxx"),
     }
 
     DURUM_CHOICE = {

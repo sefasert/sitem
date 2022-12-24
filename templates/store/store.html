@@ -15,15 +15,16 @@ Arama - Engin Elektronik
 
 <!-- gelişmiş arama yap -->
 					<div class="container">
-
+Filtreye Göre Ara:
             <form method="GET" action="{% url 'filter_results' %}">
 	<div class="col-lg col-sm col-md col-6 flex-grow-0 bg-zinc-50">
+
 							Marka:
 							 {{ myFilter.form.brand }}
 							Kategori:
 	              {{ myFilter.form.category }}
 
-							<button class="btn btn-light" type="submit">Ara</button>
+							<button class="btn btn-light" type="submit">Filtreyi Ara</button>
 		</div>
             </form>
 </div>
