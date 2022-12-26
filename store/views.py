@@ -61,7 +61,7 @@ def store(request, category_slug=None):
 def product_detail(request, category_slug, product_slug):
     try:
         single_product = Product.objects.get(category__slug=category_slug, slug=product_slug)
-        products = Product.objects.filter(category=single_product.category) #related
+        products = Product.objects.filter(category=single_product.category, is_available=True) #related
         in_cart        = CartItem.objects.filter(cart__cart_id=_cart_id(request), product=single_product).exists()
         categories     = get_object_or_404(Category, slug=category_slug)
     except Exception as e:
