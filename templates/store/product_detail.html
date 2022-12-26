@@ -50,11 +50,11 @@
 <div class="row">
 	<!-- Default dropright button -->
 	<div class="btn-group dropright">
-	  <button type="button" class="btn btn-slate rounded-circle ml-3 hover:bg-slate-50" style="box-shadow: 0 1px 0px 0 rgb(0 0 0 / 10%);" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-	    <i class="fa-solid fa-circle-info" style="margin-top:7px; margin-left:-1px;"></i>
+	  <button type="button" class="btn bg-green-50 rounded ml-3 hover:bg-slate-50 mt-1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+	    <i class="fa-solid fa-circle-info" style="margin-top:7px; margin-left:-5px;"></i> Bilgi
 	  </button>
-		<div class="dropdown-menu w-96  ml-2 border-slate-100 hover:bg-slate-50 break-all md:break-all">
-					Bilgi: Ürünlerimiz sağlam çalışır bir şekilde sunul-<br>maktadır, stoklar günceldir.
+		<div class="dropdown-menu w-96 border-slate-100 hover:bg-slate-50 break-all md:break-all" style="margin-left: 5px">
+					Ürünler sağlam, test edildi çalışıyor, stok günceldir.
 				</div>
 	</div>
 </div>
@@ -65,7 +65,7 @@
 				{% csrf_token %}
 <article class="content-body" style="margin-left: -25px;">
 
-<h2 class="flex text-3xl font-bold mb-2 mt-1.5">{{ single_product.product_name }}</h2>
+<h2 class="flex text-3xl font-bold mb-2">{{ single_product.product_name }}</h2>
 
 <div class="mb-3">
  <b>Marka:&nbsp;</b>{{ single_product.brand }}<br>
