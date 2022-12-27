@@ -97,17 +97,17 @@ Filtreye Göre Ara:
 	<div class="col-md-4">
 		<figure class="card card-product-grid">
 			<div class="img-wrap">
-				<a href="{{ product.get_absolute_url }}"> <img src="{{ product.images.url }}" class="rounded hover:scale-105 transition duration-1000 ease-in-out" alt="{{ product.product_name }}" width="1000" height="1000"></a>
+				<a href="{{ product.get_absolute_url }}" target="_blank"> <img src="{{ product.images.url }}" class="rounded hover:scale-105 transition duration-1000 ease-in-out" alt="{{ product.product_name }}" width="1000" height="1000"></a>
 			</div> <!-- img-wrap.// -->
 			<figcaption class="info-wrap">
 				<div class="fix-height">
 					<span class="badge badge-pill badge-light" style="font-size:11px; margin-left: -5px; margin-top:-3px">Stok: {{product.stock}} Adet</span>
 
 					<div style="margin-left: -5px; margin-top: 215px;" class="badge badge-pill badge-light hover:bg-gray-300">
-					<a href="{{ product.category.get_url }}" class="font-semibold hover:text-gray-700 break-all">{{ product.category }}</a>
+					<a href="{{ product.category.get_url }}" target="_blank" class="font-semibold hover:text-gray-700 break-all">{{ product.category }}</a>
 					</div>
 
-					<a href="{{ product.get_absolute_url }}" class="title mt-4">{{ product.product_name }}</a>
+					<a href="{{ product.get_absolute_url }}" target="_blank" class="title mt-4">{{ product.product_name }}</a>
 
 					<div class="price-wrap mt-2">
 						{% if product.price <= 0 %}
