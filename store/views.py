@@ -115,7 +115,7 @@ def home(request, category_slug=None):
         #filter
         myFilter       = ProductFilter(request.GET, queryset=products)
         products       = myFilter.qs
-        paginator      = Paginator(products, 40)
+        paginator      = Paginator(products, 45)
         page           = request.GET.get("page")
         paged_products = paginator.get_page(page)
         product_count  = products.count()
@@ -125,7 +125,7 @@ def home(request, category_slug=None):
         #filter
         myFilter       = ProductFilter(request.GET, queryset=products)
         products       = myFilter.qs
-        paginator      = Paginator(products, 40)
+        paginator      = Paginator(products, 45)
         page           = request.GET.get("page")
         paged_products = paginator.get_page(page)
         product_count  = products.count()
