@@ -19,14 +19,137 @@ Arama - Engin Elektronik
 					<div class="container">
 Filtreye Göre Ara:
             <form method="GET" action="{% url 'filter_results' %}">
-	<div class="col-lg col-sm col-md col-6 flex-grow-0 bg-zinc-50">
+	<div class="col-lg col-sm col-md col-6 flex-grow-0">
 
-							Marka:
-							 {{ myFilter.form.brand }}
-							Kategori:
-	              {{ myFilter.form.category }}
+		Marka:
+	<!--	 {{ myFilter.form.brand }} -->
+	<select name="brand" id="id_brand" class="bg-zinc-100 rounded h-6">
+		<option value="" selected="">---------</option>
 
-							<button class="btn btn-light" type="submit">Filtreyi Ara</button>
+		<option value="SUNNY">sunny</option>
+
+<option value="Next">next</option>
+
+<option value="VESTEL">vestel</option>
+
+<option value="SANYO">sanyo</option>
+
+<option value="Skytech">skytech</option>
+
+<option value="ONVO">onvo</option>
+
+<option value="Arçelik-Beko-Grundig-Altus">arcelik-beko-grundig-altus</option>
+
+<option value="CVS">cvs</option>
+
+<option value="Homstar">homstar</option>
+
+<option value="PHILIPS">philips</option>
+
+<option value="ROWELL">rowell</option>
+
+<option value="GEEPAS">geepas</option>
+
+<option value="Profilo">profilo</option>
+
+<option value="Premier">premier</option>
+
+<option value="NEXT">next</option>
+
+<option value="Panasonic">panasonic</option>
+
+<option value="Navitech">navitech</option>
+
+<option value="TOSHIBA">toshiba</option>
+
+<option value="Dijitsu">dijitsu</option>
+
+<option value="Lifemaxx">lifemaxx</option>
+
+<option value="LG">lg</option>
+
+<option value="SAMSUNG">samsung</option>
+
+<option value="YUMATU">yumatu</option>
+
+<option value="AXEN">axen</option>
+
+<option value="AWOX">awox</option>
+
+<option value="Botech">botech</option>
+
+<option value="SUNNY-AXEN">sunny-axen</option>
+
+<option value="Nordmende">nordmende</option>
+
+<option value="SONY">sony</option>
+
+<option value="Dreamstar">dreamstar</option>
+
+			</select>
+
+		Kategori:
+	 <!--   {{ myFilter.form.category }} -->
+	 <select name="category" id="id_category" class="bg-zinc-100 rounded h-6">
+		<option value="" selected="">---------</option>
+
+		<option value="2">Philips Anakart</option>
+
+ <option value="3">Philips Powerboard</option>
+
+ <option value="4">LG Anakart</option>
+
+ <option value="5">LG Powerboard</option>
+
+ <option value="13">Samsung Anakart</option>
+
+ <option value="14">Samsung Powerboard</option>
+
+ <option value="16">Profilo Anakart</option>
+
+ <option value="20">Awox Anakart</option>
+
+ <option value="21">Vestel Anakart</option>
+
+ <option value="22">Uydu Alıcısı</option>
+
+ <option value="24">Oto Teyp</option>
+
+ <option value="26">Vestel Powerboard</option>
+
+ <option value="10">Led Driver Boardlar</option>
+
+ <option value="18">T-con Boardlar</option>
+
+ <option value="27">Zsus Board</option>
+
+ <option value="28">Ysus Board</option>
+
+ <option value="25">Android Box</option>
+
+ <option value="29">Sony Anakart</option>
+
+ <option value="30">Sony Powerboard</option>
+
+ <option value="31">Yumatu Anakart</option>
+
+ <option value="32">Uydu Alıcı Modüller</option>
+
+ <option value="8">Diğer Anakartlar</option>
+
+ <option value="9">Diğer Powerboardlar</option>
+
+ <option value="33">Arçelik-Beko-Grundig-Altus Anakart</option>
+
+ <option value="34">Arçelik-Beko-Grundig-Altus Powerboard</option>
+
+ <option value="35">Inverter Boardlar</option>
+
+ <option value="12">Sunny-Axen Anakart</option>
+
+			</select>
+
+		<button class="btn bg-gray-200 hover:bg-zinc-300 mt-1 ml-1" type="submit">Filtreyi Ara</button>
 		</div>
             </form>
 </div>

@@ -19,7 +19,6 @@ class Product(models.Model):
         ("CVS", "cvs"),
         ("VESTEL", "vestel"),
         ("PHILIPS", "philips"),
-        ("TECHNOBOX", "technobox"),
         ("Dreamstar", "dreamstar"),
         ("SAMSUNG", "samsung"),
         ("SANYO", "sanyo"),
