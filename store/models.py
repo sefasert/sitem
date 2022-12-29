@@ -45,6 +45,7 @@ class Product(models.Model):
         ("Panasonic", "panasonic"),
         ("Nordmende", "nordmende"),
         ("Lifemaxx", "lifemaxx"),
+        ("Osawa", "osawa"),
     }
 
     DURUM_CHOICE = {
