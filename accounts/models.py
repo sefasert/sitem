@@ -70,6 +70,7 @@ class UserProfile(models.Model):
     address_line = models.CharField(blank=True, max_length=150)
     city         = models.CharField(blank=True, max_length=50)
     state        = models.CharField(blank=True, max_length=50)
+    phone_number = models.CharField(blank=True, max_length=15)
 
     def __str__(self):
         return self.user.first_name

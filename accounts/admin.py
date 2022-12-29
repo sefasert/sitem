@@ -18,7 +18,7 @@ class AccountAdmin(UserAdmin):
     fieldsets           = ()
 
 class UserProfileAdmin(admin.ModelAdmin):
-    list_display = ("user", "city", "state")
+    list_display = ("user", "city", "state", "phone_number")
 
 admin.site.register(Account, AccountAdmin)
 admin.site.unregister(Group) #grubu gizlemek için ekledik
