@@ -34,7 +34,7 @@ def store(request, category_slug=None):
         #filter
         myFilter       = ProductFilter(request.GET, queryset=products)
         products       = myFilter.qs
-        paginator      = Paginator(products, 90)
+        paginator      = Paginator(products, 42)
         page           = request.GET.get("page")
         paged_products = paginator.get_page(page)
         product_count  = products.count()
@@ -44,7 +44,7 @@ def store(request, category_slug=None):
         #filter
         myFilter       = ProductFilter(request.GET, queryset=products)
         products       = myFilter.qs
-        paginator      = Paginator(products, 90)
+        paginator      = Paginator(products, 42)
         page           = request.GET.get("page")
         paged_products = paginator.get_page(page)
         product_count  = products.count()
@@ -115,7 +115,7 @@ def home(request, category_slug=None):
         #filter
         myFilter       = ProductFilter(request.GET, queryset=products)
         products       = myFilter.qs
-        paginator      = Paginator(products, 45)
+        paginator      = Paginator(products, 42)
         page           = request.GET.get("page")
         paged_products = paginator.get_page(page)
         product_count  = products.count()
@@ -125,7 +125,7 @@ def home(request, category_slug=None):
         #filter
         myFilter       = ProductFilter(request.GET, queryset=products)
         products       = myFilter.qs
-        paginator      = Paginator(products, 45)
+        paginator      = Paginator(products, 42)
         page           = request.GET.get("page")
         paged_products = paginator.get_page(page)
         product_count  = products.count()
@@ -156,7 +156,7 @@ def filter_results(request):
     #filter
     myFilter       = ProductFilter(request.GET, queryset=products)
     products       = myFilter.qs
-    paginator      = Paginator(products, 90)
+    paginator      = Paginator(products, 42)
     page           = request.GET.get("page")
     try:
         paged_products = paginator.page(page)
