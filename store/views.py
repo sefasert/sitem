@@ -152,7 +152,7 @@ def otoyazi(request):
 
 
 def filter_results(request):
-    products       = Product.objects.filter(is_available=True).order_by("id")
+    products       = Product.objects.filter(is_available=True).order_by("-id")
     #filter
     myFilter       = ProductFilter(request.GET, queryset=products)
     products       = myFilter.qs
