@@ -15,11 +15,11 @@ class ProductGalleryInline(admin.TabularInline):
 
 class ProductAdmin(admin.ModelAdmin):
     prepopulated_fields = {"slug":("product_name",)}
-    list_display        = ("product_name", "brand", "thumbnail", "price", "stock", "category", "durum", "modified_date", "is_available")
+    list_display        = ("product_name", "brand", "thumbnail", "price", "stock", "yeni", "category", "durum", "modified_date", "is_available")
     search_fields       = ("product_name", "brand")
     list_per_page       = 20
     inlines             = [ProductGalleryInline]
-    list_editable = ['stock',]
+    list_editable = ['stock', "yeni"]
 
     def thumbnail(self, object):
         return format_html('<img src="{}" width="80"/>'.format(object.images.url))

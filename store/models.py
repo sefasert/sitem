@@ -53,11 +53,16 @@ class Product(models.Model):
         ("2.EL", "2"),
     }
 
+    YENI_CHOICE = {
+        ("Yeni", "yeni"),
+    }
+
     category      = models.ForeignKey(Category, blank=True, null=True, on_delete=models.CASCADE)
     product_name  = models.CharField(max_length=200)
     slug          = models.SlugField(max_length=200, unique=True)
     brand         = models.CharField(max_length=50, choices=BRAND_CHOICE, blank=True, null=True)
     durum         = models.CharField(max_length=50, choices=DURUM_CHOICE, blank=True, null=True)
+    yeni          = models.CharField(max_length=10, choices=YENI_CHOICE, blank=True, null=True)
     price         = models.IntegerField()
     images        = models.ImageField(upload_to= "photos/products", blank=True, null=True)
     stock         = models.IntegerField()
