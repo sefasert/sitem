@@ -162,6 +162,9 @@ Filtreye Göre Ara:
 </ul>
 </header><!-- sect-heading -->
 
+
+
+
 <div class="row">
 	{% if products %}
 	{% for product in products %}
@@ -209,11 +212,6 @@ Filtreye Göre Ara:
 <nav class="mt-4" aria-label="Page navigation sample">
 	{% if products.has_other_pages %}
   <ul class="pagination">
-		{% if products.has_previous %}
-    <li class="page-item"><a class="page-link" href="?page={{ products.previous_page_number }}">Önceki</a></li>
-		{% else %}
-		<li class="page-item disabled"><a class="page-link" href="#">Önceki</a></li>
-		{% endif %}
 
 		{% for i in products.paginator.page_range %}
 		{% if products.number == i %}
@@ -223,11 +221,6 @@ Filtreye Göre Ara:
 		{% endif %}
 		{% endfor %}
 
-		{% if products.has_next %}
-    <li class="page-item"><a class="page-link" href="?page={{ products.next_page_number }}">Sonraki</a></li>
-		{% else %}
-		<li class="page-item disabled"><a class="page-link" href="#">Sonraki</a></li>
-		{% endif %}
   </ul>
 		{% endif %}
 </nav>

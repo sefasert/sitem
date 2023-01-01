@@ -118,7 +118,8 @@
 <section class="pt-3 pb-3">
     <div class="container mx-auto">
         <div class="row">
-            <h3 class="flex card-title mb-4 ml-2 text-2xl font-bold break-all md:break-all">{{ categories.category_name }} Ürünler</h3>
+            <h3 class="flex card-title mb-4 ml-3 text-xl font-bold break-all md:break-all">Benzer {{ categories.category_name }}</h3>
+						<a class="btn bg-zinc-100 hover:bg-zinc-200 ml-3 -mt-2 w-32 h-11 font-semibold" href="{{ categories.get_url }}">Hepsini Gör</a>
             <div class="col-12">
                 <div id="carouselExampleIndicators2" class="carousel slide" data-ride="carousel">
                     <div class="carousel-inner">

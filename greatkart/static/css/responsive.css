@@ -72,6 +72,8 @@
     flex-direction: column;
   }
 
+
+
   .col-md-3 .card {
     display: none;
   }
@@ -89,6 +91,8 @@
     margin-left: 0px;
     margin-right: 0px;
   }
+
+
 
 }
 
