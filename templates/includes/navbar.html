@@ -39,7 +39,7 @@
 
   <div class="flex justify-center col-lg col-sm col-md col-6 flex-grow-0">
     <div class="category-wrap dropdown d-inline-block float-right">
-<a href="{% url 'home' %}" class="btn btn-outline-primary hover:bg-blue-600">Anasayfa</a>
+<a href="{% url 'home' %}" class="btn btn-outline-primary hover:bg-blue-600 -ml-3">Anasayfa</a>
 
 
 
@@ -50,15 +50,18 @@
 
   <div class="pl-0 col-lg col-sm col-md col-6 flex-grow-0">
 
-    <button id="dropdownDefault" data-toggle="dropdown"  class="text-white bg-blue-600 hover:bg-blue-700  focus:outline-none font-medium rounded  px-3 py-2  inline-flex items-center" type="button">Kategoriler
+    <button id="dropdownDefault" data-toggle="dropdown"  class="text-white bg-blue-600 hover:bg-blue-700  focus:outline-none font-medium rounded  px-3 py-2  inline-flex items-center -ml-1" type="button">
+      <span class="-ml-1">Kategoriler</span>
       <svg class="ml-2 w-4 h-4" aria-hidden="true" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
       <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
     </button>
 
   <div class="dropdown-menu">
-    <a class="dropdown-item" href="https://www.enginelektronik.xyz/filter_results/?brand=&category=&yeni=Yeni">Yeni Ürünler</a>
+    <a class="dropdown-item" href="https://www.enginelektronik.xyz/filter_results/?brand=&category=&yeni=Yeni">
+      <span class="-ml-3">Yeni Ürünler </span></a>
     {% for category in links %}
-    <a class="dropdown-item" href="{{ category.get_url }}">{{ category.category_name }}</a>
+    <a class="dropdown-item" href="{{ category.get_url }}">
+      <span class="-ml-3">{{ category.category_name }}</span></a>
     {% endfor %}
   </div>
   </div>

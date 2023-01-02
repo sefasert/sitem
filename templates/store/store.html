@@ -109,7 +109,7 @@ Filtreye Göre Ara:
 <div class="container">
 <div class="row">
 	<aside class="col-md-3 md:flex" style="margin-left: -15px;">
-<div class="flex card w-72" style="height:1750px;">
+<div class="flex card w-72" style="height:1800px;">
 	<article class="filter-group">
 		<header class="card-header">
 			<i class="icon-control fa fa-list"></i>
@@ -171,12 +171,17 @@ Filtreye Göre Ara:
 	<div class="col-md-4">
 		<figure class="card card-product-grid">
 			<div class="img-wrap">
-				<a href="{{ product.get_absolute_url }}" target="_blank"> <img src="{{ product.images.url }}" class="rounded hover:scale-105 transition duration-1000 ease-in-out" alt="{{ product.product_name }}" width="1000" height="1000"></a>
+				<a href="{{ product.get_absolute_url }}" target="_blank"> <img src="{{ product.images.url }}"
+					class="rounded hover:scale-105 transition duration-1000 ease-in-out"
+					alt="{{ product.product_name }}" width="1000" height="1000"></a>
 			</div> <!-- img-wrap.// -->
 			<figcaption class="info-wrap">
 				<div class="fix-height">
 					<span class="badge badge-pill badge-light" style="font-size:11px; margin-left: -5px; margin-top:-3px">Stok: {{product.stock}} Adet</span>
-
+					{% if product.yeni %}
+<span class="badge  badge-danger badge-yeni" style="font-size:11px; margin-left: 243px; margin-top:-3px">
+	<i class="fa-solid fa-bolt stroke-2"></i> {{product.yeni}}</span>
+					{% endif %}
 					<div style="margin-left: -5px; margin-top: 215px;" class="badge badge-pill badge-light hover:bg-gray-300">
 					<a href="{{ product.category.get_url }}" target="_blank" class="font-semibold hover:text-gray-700 break-all">{{ product.category }}</a>
 					</div>
