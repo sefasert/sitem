@@ -18,6 +18,10 @@
 	<span class="text-normal">Satışa Sunulduğu Tarih: {{ single_product.created_date }}</span>
 
 <!-- ============================ COMPONENT 1 ================================= -->
+
+
+{% if single_product.stock <= 0 %}
+
 <div class="card mt-1">
 	<div class="row no-gutters">
 		<aside class="col-md-5">
@@ -25,22 +29,15 @@
 <article class="gallery-wrap">
 	<div class="img-big-wrap mainImage">
 <center>
-	<img src="{{ single_product.images.url }}" alt="ürün resmi" style="height:360px;"></img>
+	<img src="{{ single_product.images.url }}" alt="ürün resmi" style="height:360px;"
+	class="filter grayscale hover:grayscale-0 transition-all duration-300"> </img>
 
-	<a href="{{ single_product.images.url }}" target="_blank">
-		<i class="fa-solid fa-magnifying-glass"></i> görseli büyütmek için tıkla</a>
+
 </center>
 	</div> <!-- img-big-wrap.// -->
 </article> <!-- gallery-wrap .end// -->
 
-<ul class="thumb">
-	<li>
-		<a href="{{ single_product.images.url }}"><img src="{{ single_product.images.url }}" class="inline rounded-lg mr-2" alt="Product Image"></img></a>
-		{% for i in product_gallery %}
-		<a href="{{i.image.url}}"><img src="{{i.image.url}}" class="inline rounded-lg" alt="Product Image_Small"></img></a>
-		{% endfor %}
-		</li>
-	</ul>
+
 
 		</aside>
 		<main class="col-md-7 border-left">
@@ -50,11 +47,11 @@
 <div class="row">
 	<!-- Default dropright button -->
 	<div class="btn-group dropright">
-	  <button type="button" class="btn bg-green-50 rounded ml-3 hover:bg-slate-50 mt-1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+	  <button type="button" class="btn bg-gray-100 rounded ml-3 hover:bg-slate-50 mt-1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 	    <i class="fa-solid fa-circle-info" style="margin-top:7px; margin-left:-5px;"></i> Bilgi
 	  </button>
 		<div class="dropdown-menu w-96 border-slate-100 hover:bg-slate-50 break-all md:break-all" style="margin-left: 5px">
-					Ürünler sağlam, test edildi çalışıyor, stok günceldir.
+					Bu ürün satıldı, yakın zamanda silinecektir.
 				</div>
 	</div>
 </div>
@@ -65,7 +62,7 @@
 				{% csrf_token %}
 <article class="content-body" style="margin-left: -25px;">
 
-<h2 class="flex text-3xl font-bold mb-2">{{ single_product.product_name }}</h2>
+<h2 class="flex text-3xl font-bold mb-1">{{ single_product.product_name }}</h2>
 
 <div class="mb-3">
  <b>Marka:&nbsp;</b>{{ single_product.brand }}<br>
@@ -79,11 +76,79 @@
 <br>
 
 <hr class="mb-2">
-<br>
-{% if single_product.stock <= 0 %}
+
 	<h5 class="text-xl text-gray-500"><b>Bu ürün satıştan kaldırılmıştır</b></h5>
 	<span class="text-base">Satıştan Kaldırıldığı Tarih: {{ single_product.modified_date }}</span>
+
+
 	{% else %}
+
+	<div class="card mt-1">
+		<div class="row no-gutters">
+			<aside class="col-md-5">
+
+	<article class="gallery-wrap">
+		<div class="img-big-wrap mainImage">
+	<center>
+		<img src="{{ single_product.images.url }}" alt="ürün resmi" style="height:360px;"></img>
+
+		<a href="{{ single_product.images.url }}" target="_blank">
+			<i class="fa-solid fa-magnifying-glass"></i> görseli büyütmek için tıkla</a>
+	</center>
+		</div> <!-- img-big-wrap.// -->
+	</article> <!-- gallery-wrap .end// -->
+
+	<ul class="thumb">
+		<li>
+			<a href="{{ single_product.images.url }}"><img src="{{ single_product.images.url }}" class="inline rounded-lg mr-2" alt="Product Image"></img></a>
+			{% for i in product_gallery %}
+			<a href="{{i.image.url}}"><img src="{{i.image.url}}" class="inline rounded-lg" alt="Product Image_Small"></img></a>
+			{% endfor %}
+			</li>
+		</ul>
+
+			</aside>
+			<main class="col-md-7 border-left">
+
+
+
+	<div class="row">
+		<!-- Default dropright button -->
+		<div class="btn-group dropright">
+		  <button type="button" class="btn bg-green-50 rounded ml-3 hover:bg-slate-50 mt-1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+		    <i class="fa-solid fa-circle-info" style="margin-top:7px; margin-left:-5px;"></i> Bilgi
+		  </button>
+			<div class="dropdown-menu w-96 border-slate-100 hover:bg-slate-50 break-all md:break-all" style="margin-left: 5px">
+						Ürünler sağlam, test edildi çalışıyor, stok günceldir.
+					</div>
+		</div>
+	</div>
+
+
+
+				<form action="{% url 'add_cart' single_product.id  %}" method="POST">
+					{% csrf_token %}
+	<article class="content-body" style="margin-left: -25px;">
+
+	<h2 class="flex text-3xl font-bold mb-2">{{ single_product.product_name }}</h2>
+
+	<div class="mb-3">
+	 <b>Marka:&nbsp;</b>{{ single_product.brand }}<br>
+	 <b>Durum:&nbsp;</b>{{ single_product.durum }}<br>
+	 <b>Stokta Kalan:&nbsp;</b>{{ single_product.stock }} Adet
+	</div>
+
+
+	<b class="text-base text-md">Bu ürün hakkında:</b>
+	<span class="text-base">{{ single_product.description | safe }} </span>
+	<br>
+
+	<hr class="mb-2">
+	<br>
+
+
+
+
 	<div>
 	<span class="price h4">{{ single_product.price }} ₺</span>
 		<button type="submit" class="btn bg-blue-600 hover:bg-blue-700 text-white focus:ring-3 focus:ring-blue-300 -mt-3 ml-3"> <span class="text">&nbsp;Sepete Ekle</span> <i class="fa-solid fa-cart-shopping"></i></button>
@@ -94,7 +159,7 @@
 		<a href="https://wa.me/905451973471" target="_blank">
 			<button type="button" class="btn bg-emerald-600 hover:bg-emerald-700 text-white focus:ring-3 mt-3">
 				<i class="fa fa-phone"></i> Whatsapp Sipariş (0545-197-3471)</button></a>
-		{% endif %}
+
 
 <br><br><br>
 <div class="rounded w-48 border-slate-100 hover:bg-green-50">
@@ -112,7 +177,7 @@
 <br>
 
 </div> <!-- container .//  -->
-
+		{% endif %}
 </section>
 
 <section class="pt-3 pb-3">
