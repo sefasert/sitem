@@ -10,12 +10,16 @@
 <section class="section-content padding-y bg">
 <div class="container">
 
-	<ul class="breadcrumb" style="margin-top: -15px; margin-bottom: 5px;">
-		<li><a class="text-normal" href="{% url 'home' %}">Anasayfa&nbsp;»</a></li>
-		<li><a class="text-normal" href="{{ categories.get_url }}">&nbsp;{{ categories.category_name }} »&nbsp;</a></li>
-		<li class="text-semibold">{{ single_product.product_name }}</li>
+
+
+	<ul class="breadcrumb" style="margin-top: -17px; margin-bottom: 5px;">
+		<li><a class="text-normal" href="{% url 'home' %}">Anasayfa&nbsp;</a></li>
+		<svg viewBox="0 0 24 24" width="22" height="22" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" class="css-i6dzq1"><polyline points="9 18 15 12 9 6"></polyline></svg>&nbsp;
+		<li><a class="text-normal" href="{{ categories.get_url }}">{{ categories.category_name }}&nbsp;</a></li>
+		<svg viewBox="0 0 24 24" width="22" height="22" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" class="css-i6dzq1"><polyline points="9 18 15 12 9 6"></polyline></svg>&nbsp;
+		<li class="text-base">{{ single_product.product_name }}</li>
 	</ul>
-Satışa Sunulduğu Tarih:
+	Satışa Sunulduğu Tarih:
 	<span class="bg-blue-50 text-blue-800 text-sm font-medium inline-flex items-center px-2.5 py-0.5 rounded dark:bg-gray-700 dark:text-blue-400 border border-blue-400">
 <svg viewBox="0 0 24 24" width="14" height="14" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" class="css-i6dzq1 -ml-1"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
 &nbsp;{{ single_product.created_date }}</span>
@@ -101,7 +105,8 @@ Satıştan Kaldırıldığı Tarih:
 		<img src="{{ single_product.images.url }}" class="rounded" alt="ürün resmi" style="height:360px;"></img>
 
 		<a href="{{ single_product.images.url }}" target="_blank">
-			<i class="fa-solid fa-magnifying-glass"></i> görseli büyütmek için tıkla</a>
+			<svg viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" stroke-width="4" fill="none" stroke-linecap="round" stroke-linejoin="round" class="css-i6dzq1 inline"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+			detaylı görmek için tıkla</a>
 	</center>
 		</div> <!-- img-big-wrap.// -->
 	</article> <!-- gallery-wrap .end// -->
@@ -124,10 +129,10 @@ Satıştan Kaldırıldığı Tarih:
 		<!-- Default dropright button -->
 		<div class="btn-group dropright">
 		  <button type="button" class="btn bg-green-50 rounded ml-3 hover:bg-slate-50 mt-1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-		    <i class="fa-solid fa-circle-info" style="margin-top:7px; margin-left:-5px;"></i> Bilgi
+		     <svg viewBox="0 0 24 24" width="16" height="14" stroke="currentColor" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round" class="css-i6dzq1 inline -mt-1 -ml-2"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="16" x2="12" y2="12"></line><line x1="12" y1="8" x2="12.01" y2="8"></line></svg> Bilgi
 		  </button>
 			<div class="dropdown-menu w-96 border-slate-100 hover:bg-slate-50 break-all md:break-all" style="margin-left: 5px">
-						Ürünler sağlam, test edildi çalışıyor, stok günceldir.
+						Ürün sağlam, test edildi çalışıyor, stok-fiyat güncel
 					</div>
 		</div>
 	</div>
@@ -170,7 +175,7 @@ Satıştan Kaldırıldığı Tarih:
 
 
 <br><br><br>
-<div class="rounded w-48 border-slate-100 hover:bg-green-50">
+<div class="rounded w-48 border-slate-100 hover:bg-green-50 -mt-3">
 <p class="mb-1 font-medium">Paylaş:</p>
 <div class="sharethis-inline-share-buttons">
 </div>
@@ -193,7 +198,7 @@ Satıştan Kaldırıldığı Tarih:
         <div class="row">
             <h3 class="flex card-title mb-4 ml-3 text-xl font-bold break-all md:break-all">Benzer {{ categories.category_name }}</h3>
 						<a class="btn bg-zinc-100 hover:bg-zinc-200 ml-3 -mt-2 w-32 h-11 font-semibold" href="{{ categories.get_url }}">Hepsini Gör</a>
-            <div class="col-12">
+            <div class="col-12 mt-1">
                 <div id="carouselExampleIndicators2" class="carousel slide" data-ride="carousel">
                     <div class="carousel-inner">
                         <div class="carousel-item active">

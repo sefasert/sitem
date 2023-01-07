@@ -152,10 +152,11 @@ Filtreye Göre Ara:
 			<span class="mr-md-auto"> <b> {{ product_count }} </b> ürün bulundu </span>
 {% endif %}
 		</div>
-		<ul class="breadcrumb">
+		<ul class="breadcrumb mt-1">
 {% if categories %}
   <li class="active"><a href="{% url 'home'  %}">Anasayfa&nbsp;</a></li>
-	<li>»&nbsp;{{ categories }}</li>
+	<svg viewBox="0 0 24 24" width="22" height="22" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" class="css-i6dzq1"><polyline points="9 18 15 12 9 6"></polyline></svg>&nbsp;
+	<li>{{ categories }}</li>
 	{% else %}
 	<li>aramaya göre çıkan sonuçlar:</li>
 {% endif %}
