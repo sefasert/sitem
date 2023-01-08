@@ -57,8 +57,6 @@
     </button>
 
   <div class="dropdown-menu">
-    <a class="dropdown-item" href="https://www.enginelektronik.xyz/filter_results/?brand=&category=&yeni=Yeni">
-      <span class="-ml-3">Yeni Ürünler </span></a>
     {% for category in links %}
     <a class="dropdown-item" href="{{ category.get_url }}">
       <span class="-ml-3">{{ category.category_name }}</span></a>
