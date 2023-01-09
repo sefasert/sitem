@@ -15,18 +15,14 @@
 			</div> <!-- img-wrap.// -->
 			<figcaption class="info-wrap">
 				<div class="fix-height">
-
 					<div style="margin-left: -5px; margin-top: 215px;" class="badge badge-pill badge-light hover:bg-gray-300">
 					<a href="{{ product.category.get_url }}" target="_blank" class="font-semibold hover:text-gray-700 break-all">{{ product.category }}</a>
 					</div>
-
 					<a href="{{ product.get_absolute_url }}" target="_blank" class="title mt-4">{{ product.product_name }}</a>
-
 					<div class="price-wrap mt-2">
 						{% if product.price <= 0 %}
 							<h5 style="color: gray"><b>Stokta kalmadı, sipariş için iletişime geçin</b></h5>
 							{% else %}
-
 					</div> <!-- price-wrap.// -->
 				</div>
 							</figcaption>

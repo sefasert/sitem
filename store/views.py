@@ -34,7 +34,7 @@ def store(request, category_slug=None):
         #filter
         myFilter       = ProductFilter(request.GET, queryset=products)
         products       = myFilter.qs
-        paginator      = Paginator(products, 42)
+        paginator      = Paginator(products, 33)
         page           = request.GET.get("page")
         paged_products = paginator.get_page(page)
         product_count  = products.count()
@@ -44,7 +44,7 @@ def store(request, category_slug=None):
         #filter
         myFilter       = ProductFilter(request.GET, queryset=products)
         products       = myFilter.qs
-        paginator      = Paginator(products, 42)
+        paginator      = Paginator(products, 33)
         page           = request.GET.get("page")
         paged_products = paginator.get_page(page)
         product_count  = products.count()
@@ -115,7 +115,7 @@ def home(request, category_slug=None):
         #filter
         myFilter       = ProductFilter(request.GET, queryset=products)
         products       = myFilter.qs
-        paginator      = Paginator(products, 39)
+        paginator      = Paginator(products, 30)
         page           = request.GET.get("page")
         paged_products = paginator.get_page(page)
 
@@ -125,7 +125,7 @@ def home(request, category_slug=None):
         #filter
         myFilter       = ProductFilter(request.GET, queryset=products)
         products       = myFilter.qs
-        paginator      = Paginator(products, 39)
+        paginator      = Paginator(products, 30)
         page           = request.GET.get("page")
         paged_products = paginator.get_page(page)
 
@@ -155,7 +155,7 @@ def filter_results(request):
     #filter
     myFilter       = ProductFilter(request.GET, queryset=products)
     products       = myFilter.qs
-    paginator      = Paginator(products, 39)
+    paginator      = Paginator(products, 33)
     page           = request.GET.get("page")
     try:
         paged_products = paginator.page(page)
