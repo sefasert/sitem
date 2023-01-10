@@ -6,7 +6,9 @@
 	<div class="col-md-4">
 		<figure class="card card-product-grid rounded">
 			<div class="img-wrap absolute hover:-translate-y-2.5 duration-1000">
-				<a href="{{ product.get_absolute_url }}"> <img class="rounded" src="{{ product.images.url }}" alt="{{ product.product_name }}" width="1000" height="1000"></a>
+				<a href="{{ product.get_absolute_url }}">
+					<img class="rounded" src="{{ product.images.url }}" alt="{{ product.product_name }}" />
+				</a>
 				<span class="badge badge-pill badge-light" style="font-size:11px; margin-left: -5px; margin-top:-3px">Stok: {{product.stock}} Adet</span>
 				{% if product.yeni %}
 <span class="badge  badge-danger badge-yeni" style="font-size:11px; margin-left: 243px; margin-top:-3px">
@@ -45,6 +47,6 @@
             <button class="btn hover:bg-slate-50" style="margin-bottom: 50px; margin-top: 30px;  border-radius: 50px; box-shadow: 0 2px 8px 0 rgb(0 0 0 / 15%);"
                     hx-get="{% url 'home' %}?page={{products.next_page_number}}"
                     hx-target="#load-more"
-                    hx-swap="outerHTML">daha fazla yükle </button>
+                    hx-swap="outerHTML">daha fazla yükle&nbsp;</button>
         </div>
 {% endif %}
