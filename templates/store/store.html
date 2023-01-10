@@ -166,6 +166,23 @@ Filtreye Göre Ara:
 
 
 
+<nav class="mb-7" aria-label="Page navigation sample">
+	{% if products.has_other_pages %}
+  <ul class="pagination">
+
+		{% for i in products.paginator.page_range %}
+		{% if products.number == i %}
+    <li class="page-item active"><a class="page-link" href="#">{{ i }}</a></li>
+		{% else %}
+		<li class="page-item"><a class="page-link" href="?page={{i}}">{{ i }}</a></li>
+		{% endif %}
+		{% endfor %}
+
+  </ul>
+		{% endif %}
+</nav>
+
+
 
 <div class="row sagsol" style="margin-top: 3px;">
 	{% if products %}
@@ -210,6 +227,12 @@ Filtreye Göre Ara:
 </div>
  {% endif %}
 </div>
+
+
+<a href="#" class="bas" style="width:45px; height:45px; display:none; background-color: #a1d5e3; border-radius: 50px; box-shadow: 0 2px 8px 0 rgb(0 0 0 / 15%); position:fixed; padding:8px; z-index:100; right:0; bottom:0; margin-bottom: 10px; margin-right:3px; opacity:0.9;">
+<svg viewBox="0 0 24 24" width="55" height="35" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" class="css-i6dzq1 -ml-3.5 -mt-1"><polyline points="18 15 12 9 6 15"></polyline></svg>
+</a>
+
 
 
 <nav class="mt-4" aria-label="Page navigation sample">
