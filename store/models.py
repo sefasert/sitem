@@ -65,6 +65,7 @@ class Product(models.Model):
     yeni          = models.CharField(max_length=10, choices=YENI_CHOICE, blank=True, null=True)
     price         = models.IntegerField()
     images        = models.ImageField(upload_to= "photos/products", blank=True, null=True)
+    webp          = models.ImageField(upload_to= "webp/products", blank=True, null=True)
     stock         = models.IntegerField()
     tags          = models.CharField(max_length=400, blank=True)
     description   = RichTextField(blank=True)
