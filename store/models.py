@@ -46,6 +46,7 @@ class Product(models.Model):
         ("Lifemaxx", "lifemaxx"),
         ("Osawa", "osawa"),
         ("Hisense", "hisense"),
+        ("SEG", "seg"),
     }
 
     DURUM_CHOICE = {
