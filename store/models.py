@@ -47,6 +47,7 @@ class Product(models.Model):
         ("Osawa", "osawa"),
         ("Hisense", "hisense"),
         ("SEG", "seg"),
+        ("ALBA", "alba"),
     }
 
     DURUM_CHOICE = {
