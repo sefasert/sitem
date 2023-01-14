@@ -190,7 +190,7 @@ Filtreye Göre Ara:
 	<div class="col-md-4">
 		<figure class="card card-product-grid rounded">
 			<div class="img-wrap absolute hover:-translate-y-2.5 duration-1000">
-				<a href="{{ product.get_absolute_url }}" target="_blank"> <img src="{{ product.images.url }}"
+				<a href="{{ product.get_absolute_url }}" target="_blank"> <img src="{{ product.webp.url }}"
 				class="rounded" alt="{{ product.product_name }}" /></a>
 				<span class="badge badge-pill badge-light" style="font-size:11px; margin-left: -5px; margin-top:-3px">Stok: {{product.stock}} Adet</span>
 				{% if product.yeni %}
