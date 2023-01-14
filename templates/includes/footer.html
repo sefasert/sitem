@@ -8,16 +8,18 @@
 	<div class="container">
 		<section class="footer-bottom border-top row flex">
 			<div class="col-md-3 pl-0 mr-10">
-
 				{% for ayarlar in ayarlar %}
 				<span class="ml-1">{{ ayarlar.copy }}</span>
 			</div>
-				<span class="ml-1"><i class="fa fa-phone"></i><a href="https://wa.me/905451973471" target="_blank"> {{ ayarlar.telefon }}</a></span>&nbsp;&nbsp;
-				<a class="ml-1" href="https://goo.gl/maps/U6h5JE1MKjGA6XeK8" target="_blank">
-					<i class="fa fa-map-marker-alt"></i> {{ ayarlar.adres }}</a>&nbsp;&nbsp;
-					<span class="ml-1"><i class="fa-solid fa-clock"></i> {{ ayarlar.saat }}</span>
-{% endfor %}
-
+				<span class="ml-1">
+					<svg viewBox="0 0 24 24" width="16" height="20" stroke="black" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" class="css-i6dzq1 inline fill-black"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+			    </svg>
+					<a href="https://wa.me/905451973471" target="_blank"> {{ ayarlar.telefon }}</a></span>&nbsp;
+					<a class="ml-1" href="https://goo.gl/maps/U6h5JE1MKjGA6XeK8" target="_blank">
+					<svg viewBox="0 0 24 24" width="22" height="18" stroke="black" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" class="css-i6dzq1 inline fill-black"><polygon points="3 11 22 2 13 21 11 13 3 11"></polygon></svg>
+					{{ayarlar.adres}}</a>
+					<span class="mr-2 ml-1"><svg viewBox="0 0 24 24" width="22" height="22" stroke="white" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" class="css-i6dzq1 inline fill-zinc-700 -mt-1"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>{{ ayarlar.saat }}</span>
+					{% endfor %}
 		</section>
 	</div><!-- //container -->
 </footer>

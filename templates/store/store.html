@@ -111,7 +111,7 @@ Filtreye Göre Ara:
 <div class="container">
 <div class="row">
 	<aside class="col-md-3 md:flex" style="margin-left: -15px;">
-<div class="flex card w-72" style="height:1800px;">
+<div class="flex card w-72" style="height:1200px;">
 	<article class="filter-group">
 		<header class="card-header">
 			<i class="icon-control fa fa-list"></i>
@@ -119,25 +119,14 @@ Filtreye Göre Ara:
 		</header>
 
 		<div class="filter-content show" id="collapse_1">
-			<div class="card-body pl-0" style="margin-top: -15px; margin-left: -3px">
+			<div class="card-body pl-1.5" style="margin-top: -15px; margin-left: -3px">
 				<ul class="list-menu">
 			{% for category in links %}
-					<div class="btn-group dropright">
- <li><button type="button" class="btn btn-white" aria-label="btn btn-white" style="margin: 7px">
-	 <a href="{{ category.get_url}}">{{ category.category_name }}</a>
- </button></li>
-		<button type="button" class="btn btn-white dropdown-toggle" data-toggle="dropdown"
-		aria-expanded="false" aria-label="btn btn-white dropdown" style="margin: 7px;  left: -24px">
-		</button>
-						<div class="dropdown-menu">
-								{% for rs in category.product_set.all %}
-										<li><a class="dropdown-item" href="{{ rs.get_absolute_url }}">{{ rs.product_name }}</a></li>
-								{% endfor %}
-						</div>
-					</div>
+ <li class="mt-3">
+	 <a href="{{ category.get_url }}" class="ml-3">{{ category.category_name }}</a>
+ </li>
 		 {% endfor %}
 				</ul>
-
 			</div> <!-- card-body.// -->
 		</div>
 
@@ -230,7 +219,7 @@ Filtreye Göre Ara:
 </div>
 
 
-<a href="#" class="bas" style="width:45px; height:45px; display:none; background-color: #a1d5e3; border-radius: 50px; box-shadow: 0 2px 8px 0 rgb(0 0 0 / 15%); position:fixed; padding:8px; z-index:100; right:0; bottom:0; margin-bottom: 10px; margin-right:3px; opacity:0.9;">
+<a href="#" class="bas" aria-label="yukarı çık" style="width:45px; height:45px; display:none; background-color: #a1d5e3; border-radius: 50px; box-shadow: 0 2px 8px 0 rgb(0 0 0 / 15%); position:fixed; padding:8px; z-index:100; right:0; bottom:0; margin-bottom: 10px; margin-right:3px; opacity:0.9;">
 <svg viewBox="0 0 24 24" width="55" height="35" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" class="css-i6dzq1 -ml-3.5 -mt-1"><polyline points="18 15 12 9 6 15"></polyline></svg>
 </a>
 
