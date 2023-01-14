@@ -10,7 +10,7 @@ class RobotsTest(TestCase):
         self.assertEqual(response.status_code, HTTPStatus.OK)
         self.assertEqual(response["content-type"], "text/plain")
         lines = response.content.decode().splitlines()
-        self.assertEqual(lines[0], "User-Agent: *")
+        self.assertEqual(lines[0], "User-Agent: Googlebot")
 
     def test_post(self):
         response = self.client.post("/robots.txt")
