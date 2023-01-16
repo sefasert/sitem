@@ -48,6 +48,7 @@ class Product(models.Model):
         ("Hisense", "hisense"),
         ("SEG", "seg"),
         ("ALBA", "alba"),
+        ("Hi-Level", "hi-level"),
     }
 
     DURUM_CHOICE = {
