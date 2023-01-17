@@ -91,7 +91,7 @@
             </div>
           </div>
           {% else %}
-          <div class="widget-header">
+          <div class="widget-header mt-1.5">
           {{ user.first_name }} {{user.last_name}}
             <div>
               <a href="{% url 'dashboard' %}">Panel</a> <span class="dark-transp"> | </span>
@@ -99,7 +99,7 @@
             </div>
           </div>
           {% endif %}
-          <a href="{% url 'cart' %}" class="widget-header pl-3 ml-3">
+          <a href="{% url 'cart' %}" class="widget-header pl-3 ml-3 mt-1.5">
             <div class="icon icon-sm rounded-circle border">
               <svg viewBox="0 0 24 24" width="22" height="18" stroke="currentColor" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round" class="css-i6dzq1 inline fill-white"><circle cx="9" cy="21" r="1"></circle><circle cx="20" cy="21" r="1"></circle><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path></svg>
             </div>
