@@ -51,6 +51,7 @@ class Product(models.Model):
         ("Hi-Level", "hi-level"),
         ("RONAX", "ronax"),
         ("BOE", "boe"),
+        ("WOON", "woon"),
     }
 
     DURUM_CHOICE = {
