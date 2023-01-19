@@ -1,6 +1,5 @@
 {% extends "base.html" %}
 {% load static %}
-
 {% block title %}
 {% if categories.category_name %}
 {{ categories.category_name }} - {{ setting.title }}
@@ -8,12 +7,8 @@
 Arama - Engin Elektronik
 {% endif %}
 {% endblock %}
-
 {% block description %}Tv satışı-tamiri, kart satışı-tamiri, kumanda satışı-tamiri, tv ayak satışı, iptv cihaz satışı-kodu, 2.el tv satışı, kablo satışı, uydu alıcısı satışı{% endblock %}
-
 {% block content %}
-
-
 
 <!-- gelişmiş arama yap -->
 					<div class="container">
@@ -59,12 +54,10 @@ Filtreye Göre Ara:
 <option value="YUMATU">yumatu</option>
 			</select>
 
-
 		Kategori:
 	 <!--   {{ myFilter.form.category }} -->
 	 <select name="category" id="id_category" class="bg-zinc-100 rounded h-6">
 		<option value="" selected="">---------</option>
-
  <option value="25">Android Box</option>
  <option value="33">Arçelik-Beko-Grundig-Altus Anakart</option>
  <option value="34">Arçelik-Beko-Grundig-Altus Powerboard</option>
@@ -95,21 +88,16 @@ Filtreye Göre Ara:
  <option value="31">Yumatu Anakart</option>
  <option value="27">Zsus Board</option>
 			</select>
-
-
-
-
 		<button class="btn bg-gray-200 hover:bg-zinc-300 mt-1 ml-1" type="submit">Filtreyi Ara</button>
 		</div>
             </form>
 </div>
 
-
-
 <!-- ========================= SECTION CONTENT ========================= -->
 <section class="section-content padding-y" style="padding-top:10px">
 <div class="container">
 <div class="row">
+
 	<aside class="col-md-3 md:flex" style="margin-left: -15px;">
 <div class="flex card w-72" style="height:1200px;">
 	<article class="filter-group">
@@ -117,7 +105,6 @@ Filtreye Göre Ara:
 			<i class="icon-control fa fa-list"></i>
 				<h6 class="text-md font-bold text-blue-600">Kategoriler</h6>
 		</header>
-
 		<div class="filter-content show" id="collapse_1">
 			<div class="card-body pl-1.5" style="margin-top: -15px; margin-left: -3px">
 				<ul class="list-menu">
@@ -127,14 +114,12 @@ Filtreye Göre Ara:
  </li>
 		 {% endfor %}
 				</ul>
-			</div> <!-- card-body.// -->
+			</div>
 		</div>
-
-	</article> <!-- filter-group  .// -->
-
-</div> <!-- card.// -->
-
+	</article>
+</div>
 	</aside> <!-- col.// -->
+
 	<main class="col-md-9">
 
 <header class="border-bottom mb-4 pb-3">
@@ -154,12 +139,9 @@ Filtreye Göre Ara:
 </ul>
 </header><!-- sect-heading -->
 
-
-
-<nav class="mb-7" aria-label="Page navigation sample">
+<nav class="mb-7" aria-label="Page navigation sample">  <!-- nav -->
 	{% if products.has_other_pages %}
   <ul class="pagination">
-
 		{% for i in products.paginator.page_range %}
 		{% if products.number == i %}
     <li class="page-item active"><a class="page-link" href="#">{{ i }}</a></li>
@@ -167,12 +149,9 @@ Filtreye Göre Ara:
 		<li class="page-item"><a class="page-link" href="?page={{i}}">{{ i }}</a></li>
 		{% endif %}
 		{% endfor %}
-
   </ul>
 		{% endif %}
-</nav>
-
-
+</nav> <!-- nav // -->
 
 <div class="row sagsol" style="margin-top: 3px;">
 	{% if products %}
@@ -187,7 +166,7 @@ Filtreye Göre Ara:
 <span class="badge  badge-danger badge-yeni" style="font-size:11px; margin-left: 243px; margin-top:-3px">
 &nbsp;{{product.yeni}}&nbsp;</span>
 				{% endif %}
-			</div> <!-- img-wrap.// -->
+			</div>
 			<figcaption class="info-wrap">
 				<div class="fix-height">
 					<div style="margin-left: -5px; margin-top: 215px;" class="badge badge-pill badge-light hover:bg-gray-300">
@@ -198,7 +177,7 @@ Filtreye Göre Ara:
 						{% if product.price <= 0 %}
 							<h5 style="color: gray"><b>Stokta kalmadı, sipariş için iletişime geçin</b></h5>
 							{% else %}
-					</div> <!-- price-wrap.// -->
+					</div>
 				</div>
 							</figcaption>
 							<div class="col">
@@ -208,7 +187,7 @@ Filtreye Göre Ara:
 				style="width: 120px; margin-bottom: 5px;">İncele</a>
 	</div>
 		</figure>
-	</div> <!-- col.// -->
+	</div>
 	{% endfor %}
 	{% else %}
 </div> <!-- row end.// -->
@@ -219,16 +198,13 @@ Filtreye Göre Ara:
 </div>
 
 
-<a href="#" class="bas" aria-label="yukarı çık" style="width:45px; height:45px; display:none; background-color: #a1d5e3; border-radius: 50px; box-shadow: 0 2px 8px 0 rgb(0 0 0 / 15%); position:fixed; padding:8px; z-index:100; right:0; bottom:0; margin-bottom: 10px; margin-right:3px; opacity:0.9;">
+<!--yukarı --> <a href="#" class="bas" aria-label="yukarı çık" style="width:45px; height:45px; display:none; background-color: #a1d5e3; border-radius: 50px; box-shadow: 0 2px 8px 0 rgb(0 0 0 / 15%); position:fixed; padding:8px; z-index:100; right:0; bottom:0; margin-bottom: 10px; margin-right:3px; opacity:0.9;">
 <svg viewBox="0 0 24 24" width="55" height="35" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" class="css-i6dzq1 -ml-3.5 -mt-1"><polyline points="18 15 12 9 6 15"></polyline></svg>
-</a>
+</a> <!-- yukarı // -->
 
-
-
-<nav class="mt-4" aria-label="Page navigation sample">
+<nav class="mt-4" aria-label="Page navigation sample"> <!-- paginator -->
 	{% if products.has_other_pages %}
   <ul class="pagination">
-
 		{% for i in products.paginator.page_range %}
 		{% if products.number == i %}
     <li class="page-item active"><a class="page-link" href="#">{{ i }}</a></li>
@@ -236,14 +212,10 @@ Filtreye Göre Ara:
 		<li class="page-item"><a class="page-link" href="?page={{i}}">{{ i }}</a></li>
 		{% endif %}
 		{% endfor %}
-
   </ul>
 		{% endif %}
-</nav>
+</nav> <!-- paginator // -->
 
- <!-- container .//  -->
 </section>
 <!-- ========================= SECTION CONTENT END// ======== !-->
-
-
 {% endblock %}

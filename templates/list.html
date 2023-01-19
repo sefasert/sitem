@@ -1,6 +1,5 @@
 {% load static %}
-
-<div class="row sagsol" style="margin-top: 3px;">
+<div class="row sagsol" style="margin-top: 3px;"> <!-- ürünler -->
 	{% if products %}
 	{% for product in products %}
 	<div class="col-md-4">
@@ -11,10 +10,9 @@
 				</a>
 				<span class="badge badge-pill badge-light" style="font-size:11px; margin-left: -5px; margin-top:-3px">Stok: {{product.stock}} Adet</span>
 				{% if product.yeni %}
-<span class="badge  badge-danger badge-yeni" style="font-size:11px; margin-left: 243px; margin-top:-3px">
-&nbsp;{{product.yeni}}&nbsp;</span>
+<span class="badge  badge-danger badge-yeni" style="font-size:11px; margin-left: 243px; margin-top:-3px">&nbsp;{{product.yeni}}&nbsp;</span>
 				{% endif %}
-			</div> <!-- img-wrap.// -->
+			</div>
 			<figcaption class="info-wrap">
 				<div class="fix-height">
 					<div style="margin-left: -5px; margin-top: 215px;" class="badge badge-pill badge-light hover:bg-gray-300">
@@ -25,28 +23,23 @@
 						{% if product.price <= 0 %}
 							<h5 style="color: gray"><b>Stokta kalmadı, sipariş için iletişime geçin</b></h5>
 							{% else %}
-					</div> <!-- price-wrap.// -->
+					</div>
 				</div>
 							</figcaption>
 							<div class="col">
 				<span class="price" style="margin-right: 70px;">{{ product.price }} ₺</span>
 				{% endif %}
-				<a href="{{ product.get_absolute_url }}" class="btn btn-primary"
-				style="width: 120px; margin-bottom: 5px;">İncele</a>
-	</div>
+				<a href="{{ product.get_absolute_url }}" class="btn btn-primary" style="width: 120px; margin-bottom: 5px;">İncele</a>
+						</div>
 		</figure>
-	</div> <!-- col.// -->
+	</div>
 	{% endfor %}
-
  {% endif %}
-</div>
-
+</div> <!-- ürünler // -->
 
 {% if products.has_next %}
-    	<div id="load-more" style="text-align:center">
-            <button class="btn hover:bg-slate-50" style="margin-bottom: 50px; margin-top: 30px;  border-radius: 50px; box-shadow: 0 2px 8px 0 rgb(0 0 0 / 15%);"
-                    hx-get="{% url 'home' %}?page={{products.next_page_number}}"
-                    hx-target="#load-more"
-                    hx-swap="outerHTML">daha fazla yükle&nbsp;</button>
-        </div>
+	<div id="load-more" style="text-align:center">
+  <button class="btn hover:bg-slate-50" style="margin-bottom: 50px; margin-top: 30px;  border-radius: 50px; box-shadow: 0 2px 8px 0 rgb(0 0 0 / 15%);"
+  hx-get="{% url 'home' %}?page={{products.next_page_number}}" hx-target="#load-more" hx-swap="outerHTML">daha fazla yükle&nbsp;</button>
+  </div>
 {% endif %}

@@ -1,132 +1,90 @@
 {% extends "base.html" %}
 {% load static %}
-
 {% block title %}{{ single_product.product_name }} - Engin Elektronik{% endblock %}
 {% block description %}{{ single_product.product_name }} - {{ single_product.description | safe }}  {% endblock %}
 {% block keywords %}{{ single_product.tags }}{% endblock %}
-
 {% block content %}
+<section class="section-content padding-y bg"> <!-- section1 -->
+<div class="container"> <!-- container -->
 
-<section class="section-content padding-y bg">
-<div class="container">
-
-
-
-	<ul class="breadcrumb" style="margin-top: -17px; margin-bottom: 5px;">
+	<ul class="breadcrumb" style="margin-top: -17px; margin-bottom: 5px;"> <!-- breadcrumb -->
 		<li><a class="text-normal" href="{% url 'home' %}">Anasayfa&nbsp;</a></li>
 		<svg viewBox="0 0 24 24" width="22" height="22" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" class="css-i6dzq1"><polyline points="9 18 15 12 9 6"></polyline></svg>&nbsp;
 		<li><a class="text-normal" href="{{ categories.get_url }}">{{ categories.category_name }}&nbsp;</a></li>
 		<svg viewBox="0 0 24 24" width="22" height="22" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" class="css-i6dzq1"><polyline points="9 18 15 12 9 6"></polyline></svg>&nbsp;
 		<li class="text-base">{{ single_product.product_name }}</li>
 	</ul>
-	Satışa Sunulduğu Tarih:
-	<span class="bg-blue-50 text-blue-800 text-sm font-medium inline-flex items-center px-2.5 py-0.5 rounded dark:bg-gray-700 dark:text-blue-400 border border-blue-400">
-<svg viewBox="0 0 24 24" width="14" height="14" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" class="css-i6dzq1 -ml-1"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
-&nbsp;{{ single_product.created_date }}</span>
-
-
-<!-- ============================ COMPONENT 1 ================================= -->
-
+	Satışa Sunulduğu Tarih: <span class="bg-blue-50 text-blue-800 text-sm font-medium inline-flex items-center px-2.5 py-0.5 rounded dark:bg-gray-700 dark:text-blue-400 border border-blue-400">
+	<svg viewBox="0 0 24 24" width="14" height="14" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" class="css-i6dzq1 -ml-1"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>&nbsp;{{ single_product.created_date }}</span>
+<!-- breadcrumb // -->
 
 {% if single_product.stock <= 0 %}
-
-<div class="card mt-1">
-	<div class="row no-gutters">
-		<aside class="col-md-5">
-
+		<aside class="col-md-5"> <!-- gri resim -->
 <article class="gallery-wrap">
 	<div class="img-big-wrap mainImage">
 <center>
 	<img src="{{ single_product.webp.url }}" alt="ürün resmi" style="height:360px;"
 	class="filter grayscale hover:grayscale-0 transition-all duration-300"> </img>
-
-
 </center>
-	</div> <!-- img-big-wrap.// -->
-</article> <!-- gallery-wrap .end// -->
+	</div>
+</article>
+		</aside> <!-- gri resim // -->
 
-
-
-		</aside>
-		<main class="col-md-7 border-left">
-
-
-
-<div class="row">
-	<!-- Default dropright button -->
+<div class="row"> <!-- info -->
 	<div class="btn-group dropright">
 	  <button type="button" class="btn bg-gray-100 rounded ml-3 hover:bg-slate-50 mt-1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-	    <i class="fa-solid fa-circle-info" style="margin-top:7px; margin-left:-5px;"></i> Bilgi için tıklayın
-	  </button>
-		<div class="dropdown-menu w-96 border-slate-100 hover:bg-slate-50 break-all md:break-all" style="margin-left: 5px">
-			Ürün satıldı, ürün alıcıya ulaştığında silinecektir.
-				</div>
+	    <i class="fa-solid fa-circle-info" style="margin-top:7px; margin-left:-5px;"></i> Bilgi için tıklayın</button>
+		<div class="dropdown-menu w-96 border-slate-100 hover:bg-slate-50 break-all md:break-all" style="margin-left: 5px">Ürün satıldı, ürün alıcıya ulaştığında silinecektir.</div>
 	</div>
-</div>
-
-
+</div> <!-- info // -->
 
 			<form action="{% url 'add_cart' single_product.id  %}" method="POST">
 				{% csrf_token %}
 <article class="content-body" style="margin-left: -25px;">
-
 <h2 class="flex text-3xl font-bold mb-1">{{ single_product.product_name }}</h2>
-
 <div class="mb-3">
  <b>Marka:&nbsp;</b>{{ single_product.brand }}<br>
  <b>Durum:&nbsp;</b>{{ single_product.durum }}<br>
  <b>Stok:&nbsp;</b>Yok
 </div>
-
-
 <b class="text-base text-md">Bu ürün hakkında:</b>
 <span class="text-base">{{ single_product.description | safe }} </span>
 <br>
-
 <hr class="mb-2">
-
 	<h5 class="text-xl text-gray-500"><b>Bu ürün satıştan kaldırılmıştır</b></h5>
 Satıştan Kaldırıldığı Tarih:
 <span class="bg-gray-100 text-gray-800 text-sm font-medium inline-flex items-center px-2.5 py-0.5 rounded mr-2 dark:bg-gray-700 dark:text-gray-400 border border-gray-500">
 <svg viewBox="0 0 24 24" width="14" height="14" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" class="css-i6dzq1 -ml-1"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
 &nbsp;{{ single_product.modified_date }}</span>
-
-
-
 	{% else %}
-
 	<div class="card mt-1">
 		<div class="row no-gutters">
-			<aside class="col-md-5">
 
+			<aside class="col-md-5"> <!-- gallery -->
 	<article class="gallery-wrap">
 		<div class="img-big-wrap mainImage">
 	<center>
 		<img src="{{ single_product.images.url }}" class="rounded" alt="ürün resmi" style="height:360px;"></img>
-
 		<a href="{{ single_product.images.url }}" target="_blank">
-			<svg viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" stroke-width="4" fill="none" stroke-linecap="round" stroke-linejoin="round" class="css-i6dzq1 inline"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
-			detaylı görmek için tıkla</a>
+			<svg viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" stroke-width="4" fill="none" stroke-linecap="round" stroke-linejoin="round" class="css-i6dzq1 inline"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg> detaylı görmek için tıkla</a>
 	</center>
-		</div> <!-- img-big-wrap.// -->
-	</article> <!-- gallery-wrap .end// -->
+		</div>
+	</article>
 
-	<ul class="thumb">
+	<ul class="thumb"> <!-- thumbnail -->
 		<li>
 			<a href="{{ single_product.images.url }}"><img src="{{ single_product.images.url }}" class="inline rounded-lg mr-2" alt="Product Image"></img></a>
 			{% for i in product_gallery %}
 			<a href="{{i.image.url}}"><img src="{{i.image.url}}" class="inline rounded-lg" alt="Product Image_Small"></img></a>
 			{% endfor %}
 			</li>
-		</ul>
+		</ul>   <!-- thumbnail // -->
 
-			</aside>
-			<main class="col-md-7 border-left">
+			</aside> <!-- gallery // -->
 
+			<main class="col-md-7 border-left">  <!-- main -->
 
-
-	<div class="row">
-		<!-- Default dropright button -->
+	<div class="row"> <!-- info -->
 		<div class="btn-group dropright">
 		  <button type="button" class="btn bg-green-50 rounded ml-3 hover:bg-slate-50 mt-1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 		     <svg viewBox="0 0 24 24" width="16" height="14" stroke="currentColor" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round" class="css-i6dzq1 inline -mt-1 -ml-2"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="16" x2="12" y2="12"></line><line x1="12" y1="8" x2="12.01" y2="8"></line></svg> Bilgi için tıklayın
@@ -135,16 +93,12 @@ Satıştan Kaldırıldığı Tarih:
 						Ürün sağlam, test edildi çalışıyor, stok-fiyat güncel
 					</div>
 		</div>
-	</div>
-
-
+	</div> <!-- info // -->
 
 				<form action="{% url 'add_cart' single_product.id  %}" method="POST">
 					{% csrf_token %}
 	<article class="content-body" style="margin-left: -25px;">
-
 	<h2 class="flex text-3xl font-bold mb-2">{{ single_product.product_name }}</h2>
-
 	<div class="mb-3">
 	 <b>Marka:&nbsp;</b>{{ single_product.brand }}<br>
 	 <b>Durum:&nbsp;</b>{{ single_product.durum }}<br>
@@ -155,18 +109,11 @@ Satıştan Kaldırıldığı Tarih:
 	 {{ single_product.stock }} Adet
 	 {% endif %}
 	</div>
-
-
 	<b class="text-base text-md">Bu ürün hakkında:</b>
 	<span class="text-base">{{ single_product.description | safe }} </span>
 	<br>
-
 	<hr class="mb-2">
 	<br>
-
-
-
-
 	<div>
 	<span class="price h4 rounded">{{ single_product.price }} ₺</span>
 		<button type="submit" class="btn bg-blue-600 hover:bg-blue-700 text-white focus:ring-3 focus:ring-blue-300 -mt-3 ml-3 "> <span class="text">
@@ -175,16 +122,11 @@ Satıştan Kaldırıldığı Tarih:
 			</button>
 	</div>
 <br>
-
-
 		<a href="https://wa.me/905451973471" target="_blank">
 			<button type="button" class="btn bg-emerald-600 hover:bg-emerald-700 text-white focus:ring-3 mt-3">
 				<svg viewBox="0 0 24 24" width="16" height="20" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" class="css-i6dzq1 inline fill-white"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
 				 Whatsapp Sipariş (0545-197-3471)</button></a>
-
-
 <br><br>
-
 <p class="mb-1 font-medium mt-2">Paylaş:</p>
 <div class="sharethis-inline-share-buttons">
 </div>
@@ -193,15 +135,12 @@ Satıştan Kaldırıldığı Tarih:
 		</main> <!-- col.// -->
 	</div> <!-- row.// -->
 </div> <!-- card.// -->
-<!-- ============================ COMPONENT 1 END .// ================================= -->
-
 <br>
-
 </div> <!-- container .//  -->
 		{% endif %}
-</section>
+</section>  <!-- section1 // -->
 
-<section class="pt-3 pb-3">
+<section class="pt-3 pb-3"> <!-- section2 -->
     <div class="container mx-auto">
         <div class="row">
             <h3 class="flex card-title mb-4 ml-1 text-md font-bold break-all md:break-all">{{ categories.category_name }} Ürünler</h3>
@@ -238,9 +177,5 @@ Satıştan Kaldırıldığı Tarih:
             </div>
         </div>
     </div>
-</section>
-
-
-
-
+</section>  <!-- section2 // -->
 {% endblock %}
