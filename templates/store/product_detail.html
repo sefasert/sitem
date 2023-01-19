@@ -19,6 +19,9 @@
 <!-- breadcrumb // -->
 
 {% if single_product.stock <= 0 %}
+<div class="card mt-1">
+<div class="row no-gutters">
+
 		<aside class="col-md-5"> <!-- gri resim -->
 <article class="gallery-wrap">
 	<div class="img-big-wrap mainImage">
@@ -29,6 +32,8 @@
 	</div>
 </article>
 		</aside> <!-- gri resim // -->
+
+<main class="col-md-7 border-left">
 
 <div class="row"> <!-- info -->
 	<div class="btn-group dropright">
@@ -70,16 +75,14 @@ Satıştan Kaldırıldığı Tarih:
 	</center>
 		</div>
 	</article>
-
-	<ul class="thumb"> <!-- thumbnail -->
+	<ul class="thumb">
 		<li>
 			<a href="{{ single_product.images.url }}"><img src="{{ single_product.images.url }}" class="inline rounded-lg mr-2" alt="Product Image"></img></a>
 			{% for i in product_gallery %}
 			<a href="{{i.image.url}}"><img src="{{i.image.url}}" class="inline rounded-lg" alt="Product Image_Small"></img></a>
 			{% endfor %}
 			</li>
-		</ul>   <!-- thumbnail // -->
-
+		</ul>
 			</aside> <!-- gallery // -->
 
 			<main class="col-md-7 border-left">  <!-- main -->
