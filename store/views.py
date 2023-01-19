@@ -62,6 +62,8 @@ def store(request, category_slug=None):
 def product_detail(request, category_slug, product_slug):
     try:
         single_product = Product.objects.get(category__slug=category_slug, slug=product_slug)
+        single_product.views_count +=1
+        single_product.save()
         products = Product.objects.filter(category=single_product.category, is_available=True) [0:12]
         in_cart        = CartItem.objects.filter(cart__cart_id=_cart_id(request), product=single_product).exists()
         categories     = get_object_or_404(Category, slug=category_slug)

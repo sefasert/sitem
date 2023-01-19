@@ -16,6 +16,16 @@
 	</ul>
 	Satışa Sunulduğu Tarih: <span class="bg-blue-50 text-blue-800 text-sm font-medium inline-flex items-center px-2.5 py-0.5 rounded dark:bg-gray-700 dark:text-blue-400 border border-blue-400">
 	<svg viewBox="0 0 24 24" width="14" height="14" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" class="css-i6dzq1 -ml-1"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>&nbsp;{{ single_product.created_date }}</span>
+
+
+<span data-tooltip-target="tooltip-light" data-tooltip-placement="right" style="margin-bottom: -5px;" class="ml-1.5 bg-blue-50 hover:bg-blue-100 text-blue-800 inline-block px-2 py-0.5 rounded border border-blue-400">
+<svg viewBox="0 0 24 24" width="20" height="18" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" class="css-i6dzq1"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg>
+</span>
+<span id="tooltip-light" role="tooltip" class="z-10 invisible inline px-1 py-0.5 text-sm font-normal bg-white border border-gray-200 rounded shadow-sm">Bu ürün {{single_product.views_count}} kez görüntülendi.</span>
+
+
+
+
 <!-- breadcrumb // -->
 
 {% if single_product.stock <= 0 %}
@@ -61,6 +71,7 @@ Satıştan Kaldırıldığı Tarih:
 <span class="bg-gray-100 text-gray-800 text-sm font-medium inline-flex items-center px-2.5 py-0.5 rounded mr-2 dark:bg-gray-700 dark:text-gray-400 border border-gray-500">
 <svg viewBox="0 0 24 24" width="14" height="14" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" class="css-i6dzq1 -ml-1"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
 &nbsp;{{ single_product.modified_date }}</span>
+
 	{% else %}
 	<div class="card mt-1">
 		<div class="row no-gutters">
@@ -98,6 +109,7 @@ Satıştan Kaldırıldığı Tarih:
 		</div>
 	</div> <!-- info // -->
 
+
 				<form action="{% url 'add_cart' single_product.id  %}" method="POST">
 					{% csrf_token %}
 	<article class="content-body" style="margin-left: -25px;">
@@ -118,9 +130,8 @@ Satıştan Kaldırıldığı Tarih:
 	<hr class="mb-2">
 	<br>
 	<div>
-	<span class="price h4 rounded">{{ single_product.price }} ₺</span>
-		<button type="submit" class="btn bg-blue-600 hover:bg-blue-700 text-white focus:ring-3 focus:ring-blue-300 -mt-3 ml-3 "> <span class="text">
-			&nbsp;Sepete Ekle&nbsp;</span>
+	<span class="price h4 rounded">{{single_product.price}} ₺</span>
+		<button type="submit" class="btn bg-blue-600 hover:bg-blue-700 text-white focus:ring-3 focus:ring-blue-300 -mt-3 ml-3 "> <span class="text">Sepete Ekle</span>
 			<svg viewBox="0 0 24 24" width="22" height="18" stroke="currentColor" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round" class="css-i6dzq1 inline fill-white"><circle cx="9" cy="21" r="1"></circle><circle cx="20" cy="21" r="1"></circle><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path></svg>
 			</button>
 	</div>
