@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from .models import Product, ProductGallery
+from .models import Product, ProductGallery, Related_Product
 
 import admin_thumbnails
 
@@ -13,12 +13,17 @@ class ProductGalleryInline(admin.TabularInline):
     extra = 1
 
 
+class Related_ProductInline(admin.TabularInline):
+    model = Related_Product
+    extra = 1
+
 class ProductAdmin(admin.ModelAdmin):
     prepopulated_fields = {"slug":("product_name",)}
     list_display        = ("product_name", "brand", "thumbnail", "webp", "price", "stock", "yeni", "category", "durum", "modified_date", "is_available")
     search_fields       = ("product_name", "brand")
     list_per_page       = 20
-    inlines             = [ProductGalleryInline]
+    inlines             = [ProductGalleryInline, Related_ProductInline]
+    
     list_editable = ['stock', "yeni", "is_available", "webp"]
 
     def thumbnail(self, object):
@@ -28,3 +33,4 @@ class ProductAdmin(admin.ModelAdmin):
 
 admin.site.register(Product,ProductAdmin)
 admin.site.register(ProductGallery)
+admin.site.register(Related_Product)

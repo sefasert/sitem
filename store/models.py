@@ -52,6 +52,7 @@ class Product(models.Model):
         ("RONAX", "ronax"),
         ("BOE", "boe"),
         ("WOON", "woon"),
+        ("SHARP", "sharp"),
     }
 
     DURUM_CHOICE = {
@@ -102,8 +103,24 @@ class ProductGallery(models.Model):
     product = models.ForeignKey(Product, default=None, on_delete=models.CASCADE)
     image = models.ImageField(upload_to="store/products", blank=True, null=True)
 
+
     def __str__(self):
         return self.product.product_name
 
     class Meta:
         verbose_name_plural = "product gallery"
+
+
+class Related_Product(models.Model):
+    product = models.ForeignKey(Product, default=None, on_delete=models.CASCADE)
+    benzerresimlink = models.CharField(max_length=200, blank=True, null=True)
+    benzerad  = models.CharField(max_length=200)
+    benzerlink = models.CharField(max_length=200)
+    benzerfiyat = models.IntegerField()
+    benzerstok  = models.IntegerField()
+
+    def __str__(self):
+        return self.product.product_name
+
+    class Meta:
+        verbose_name_plural = "related product"

@@ -1,6 +1,6 @@
 from django.shortcuts import render, get_object_or_404, redirect
 
-from .models import Product, ProductGallery
+from .models import Product, ProductGallery, Related_Product
 
 from category.models import Category
 
@@ -71,6 +71,7 @@ def product_detail(request, category_slug, product_slug):
         raise e
     #product gallery işlemleri
     product_gallery = ProductGallery.objects.filter(product_id=single_product.id)
+    related_product = Related_Product.objects.filter(product_id=single_product.id)
 
 
     context = {
@@ -78,6 +79,7 @@ def product_detail(request, category_slug, product_slug):
         "in_cart"        : in_cart,
         "categories"     : categories,
         "product_gallery": product_gallery,
+        "related_product": related_product,
         "products": products
     }
     return render(request, "store/product_detail.html", context)

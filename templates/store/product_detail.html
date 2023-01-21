@@ -144,6 +144,7 @@ Satıştan Kaldırıldığı Tarih:
 <p class="mb-1 font-medium mt-2">Paylaş:</p>
 <div class="sharethis-inline-share-buttons">
 </div>
+
 </article> <!-- product-info-aside .// -->
 </form>
 		</main> <!-- col.// -->
@@ -154,31 +155,31 @@ Satıştan Kaldırıldığı Tarih:
 		{% endif %}
 </section>  <!-- section1 // -->
 
-<section class="pt-3 pb-3"> <!-- section2 -->
+{% if related_product %} <!-- related_product -->
+<section class="pt-3 pb-3">
     <div class="container mx-auto">
         <div class="row">
-            <h3 class="flex card-title mb-4 ml-1 text-md font-bold break-all md:break-all">{{ categories.category_name }} Ürünler</h3>
-						<a class="btn bg-zinc-100 hover:bg-zinc-200 ml-3 -mt-2 w-32 h-10 font-semibold" href="{{ categories.get_url }}">Hepsini Gör</a>
+            <h3 class="flex card-title mb-4 ml-1 text-md font-bold break-all md:break-all">Benzer Ürünler:</h3>
             <div class="col-12 mt-1">
                 <div id="carouselExampleIndicators2" class="carousel slide" data-ride="carousel">
                     <div class="carousel-inner">
                         <div class="carousel-item active">
                             <div class="row sagsol" style="margin-top: 3px;">
-															{% for product in products %}
+															{% for i in related_product %}
 																<div class="col-md-2">
 																<figure class="card card-product-grid">
 																	<div class="img-wrap">
-																		<a href="{{ product.get_absolute_url }}"> <img class="rounded" src="{{ product.webp.url }}" alt="{{ product.product_name }}" /></a>
+																		 <a href="{{i.benzerlink}}" target="_blank"><img class="rounded" src="{{ i.benzerresimlink }}" alt="benzer ürün" /></a>
 																	</div> <!-- img-wrap.// -->
 																	<figcaption class="info-wrap">
 																		<div class="fix-height">
-																			<span class="badge badge-pill badge-light" style="font-size:11px; margin-left: -5px; margin-top:-3px">Stok: {{product.stock}} Adet</span>
-																			<a href="{{ product.get_absolute_url }}" class="title">{{ product.product_name }}</a>
+																			<span class="badge badge-pill badge-light" style="font-size:11px; margin-left: -5px; margin-top:-3px">Stok: {{i.benzerstok}} Adet</span>
+																			<a href="{{ i.benzerlink }}" target="_blank" class="title">{{ i.benzerad }}</a>
 																		</div>
 																					</figcaption>
 																					<div class="col">
-																		<span class="price" style="margin-right: 70px;">{{ product.price }} ₺</span>
-																		<a href="{{ product.get_absolute_url }}" class="btn btn-primary"
+																		<span class="price" style="margin-right: 70px;">{{ i.benzerfiyat }} ₺</span>
+																		<a href="{{ i.benzerlink }}" target="_blank" class="btn btn-primary"
 																		style="width: 120px; margin-bottom: 5px;">İncele</a>
 															</div>
 																</figure>
@@ -191,5 +192,6 @@ Satıştan Kaldırıldığı Tarih:
             </div>
         </div>
     </div>
-</section>  <!-- section2 // -->
+</section>
+{% endif %} <!-- related_product // -->
 {% endblock %}
