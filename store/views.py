@@ -119,7 +119,7 @@ def home(request, category_slug=None):
         #filter
         myFilter       = ProductFilter(request.GET, queryset=products)
         products       = myFilter.qs
-        paginator      = Paginator(products, 24)
+        paginator      = Paginator(products, 18)
         page           = request.GET.get("page")
         paged_products = paginator.get_page(page)
 
@@ -129,7 +129,7 @@ def home(request, category_slug=None):
         #filter
         myFilter       = ProductFilter(request.GET, queryset=products)
         products       = myFilter.qs
-        paginator      = Paginator(products, 24)
+        paginator      = Paginator(products, 18)
         page           = request.GET.get("page")
         paged_products = paginator.get_page(page)
 
