@@ -156,14 +156,11 @@ Satıştan Kaldırıldığı Tarih:
 </section>  <!-- section1 // -->
 
 {% if related_product %} <!-- related_product -->
-<section class="pt-3 pb-3">
+<section class="pt-3 pb-3 -mt-12">
     <div class="container mx-auto">
         <div class="row">
-            <h3 class="flex card-title mb-4 ml-1 text-md font-bold break-all md:break-all">Benzer Ürünler:</h3>
-            <div class="col-12 mt-1">
-                <div id="carouselExampleIndicators2" class="carousel slide" data-ride="carousel">
-                    <div class="carousel-inner">
-                        <div class="carousel-item active">
+					<button class="btn hover:cursor-default select-none hover:bg-sky-100 bg-sky-50 rounded ml-3">Benzer Ürünler:</button>
+            <div class="col-12 mt-2">
                             <div class="row sagsol" style="margin-top: 3px;">
 															{% for i in related_product %}
 																<div class="col-md-2">
@@ -186,9 +183,9 @@ Satıştan Kaldırıldığı Tarih:
 																</div>
 																{% endfor %}
                             </div>
-                        </div>
-                            </div>
-                </div>
+
+
+
             </div>
         </div>
     </div>
