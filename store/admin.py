@@ -23,8 +23,8 @@ class ProductAdmin(admin.ModelAdmin):
     search_fields       = ("product_name", "brand")
     list_per_page       = 20
     inlines             = [ProductGalleryInline, Related_ProductInline]
-    
-    list_editable = ['stock', "yeni", "is_available", "webp"]
+
+    list_editable = ['stock', "yeni", "is_available", "webp", "brand"]
 
     def thumbnail(self, object):
         return format_html('<img src="{}" width="80"/>'.format(object.images.url))

@@ -15,9 +15,13 @@ class Product(models.Model):
 
     BRAND_CHOICE = {
         ("-", ""),
-        ("Botech", "botech"),
-        ("CVS", "cvs"),
-        ("Vestel-Toshiba", "vestel-toshiba"),
+        ("Vestel-Toshiba-Profilo", "vestel-toshiba-profilo"),
+        ("Vestel-SEG", "vestel-seg"),
+        ("Vestel-Regal", "vestel-regal"),
+        ("Vestel-Techwood-Regal", "vestel-techwood-regal"),
+        ("Vestel", "vestel"),
+        ("Vestel-ALBA", "vestel-alba"),
+        ("Vestel, Hi-Level", "vestel,hi-level"),
         ("PHILIPS", "philips"),
         ("Dreamstar", "dreamstar"),
         ("SAMSUNG", "samsung"),
@@ -47,7 +51,6 @@ class Product(models.Model):
         ("Osawa", "osawa"),
         ("Hisense", "hisense"),
         ("SEG", "seg"),
-        ("ALBA", "alba"),
         ("Hi-Level", "hi-level"),
         ("RONAX", "ronax"),
         ("BOE", "boe"),
@@ -68,7 +71,7 @@ class Product(models.Model):
     category      = models.ForeignKey(Category, blank=True, null=True, on_delete=models.CASCADE)
     product_name  = models.CharField(max_length=200)
     slug          = models.SlugField(max_length=200, unique=True)
-    brand         = models.CharField(max_length=50, choices=BRAND_CHOICE, blank=True, null=True)
+    brand         = models.CharField(max_length=100, choices=BRAND_CHOICE, blank=True, null=True)
     durum         = models.CharField(max_length=50, choices=DURUM_CHOICE, blank=True, null=True)
     yeni          = models.CharField(max_length=10, choices=YENI_CHOICE, blank=True, null=True)
     price         = models.IntegerField()
