@@ -80,7 +80,7 @@ class Product(models.Model):
     images        = models.ImageField(upload_to= "photos/products", blank=True, null=True)
     webp          = models.ImageField(upload_to= "webp/products", blank=True, null=True)
     stock         = models.IntegerField()
-    tags          = models.CharField(max_length=400, blank=True)
+    tags          = models.TextField(max_length=1000, blank=True)
     description   = RichTextField(blank=True)
     is_available  = models.BooleanField(default=False)
     created_date  = models.DateField(auto_now_add=True)
