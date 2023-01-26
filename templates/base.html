@@ -40,10 +40,10 @@
     {% endblock %}
 {% include "includes/footer.html" %}
 <!-- auto complete -->
-<script src="{% static 'js/jquery-ui.min.js' %}"></script>
+<script src="{% static 'js/jquery-ui.min.js' %}" defer></script>
 <script>
   $( function() {
-  $( "#anahtar" ).autocomplete({
+  $("#anahtar").autocomplete({
       source: "{% url 'otoyazi'  %}"
   });
 } );
