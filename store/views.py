@@ -91,7 +91,7 @@ def search(request):
     if "keyword" in request.GET:
         keyword = request.GET["keyword"]
         if keyword:
-            products       = Product.objects.filter(is_available=True).order_by("-created_date").filter(Q(description__icontains=keyword) | Q(product_name__icontains=keyword))
+            products       = Product.objects.filter(is_available=True).order_by("-created_date").filter(Q(description__icontains=keyword) | Q(product_name__icontains=keyword) | Q(tags__icontains=keyword))
             #filter
             myFilter       = ProductFilter(request.GET, queryset=products)
             products       = myFilter.qs
