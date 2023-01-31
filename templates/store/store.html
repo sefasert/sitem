@@ -146,25 +146,26 @@ Filtreye Göre Ara:<button data-popover-target="popover-right" class="focus:outl
   <li class="active"><a href="{% url 'home'  %}">Anasayfa&nbsp;</a></li>
 	<svg viewBox="0 0 24 24" width="22" height="22" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" class="css-i6dzq1"><polyline points="9 18 15 12 9 6"></polyline></svg>&nbsp;
 	<li>{{ categories }}</li>
+	{% elif product_count > 0 %}
+	<li>arama sonucu: ({{product_count}}) adet ürün bulundu.</li>
 	{% else %}
-	<li>aramaya göre çıkan sonuçlar:</li>
 {% endif %}
 </ul>
 </header><!-- sect-heading -->
 
-<nav class="mb-7" aria-label="Page navigation sample">  <!-- nav -->
+<nav class="mb-7" aria-label="Page navigation sample"> <!-- paginator -->
 	{% if products.has_other_pages %}
   <ul class="pagination">
 		{% for i in products.paginator.page_range %}
 		{% if products.number == i %}
-    <li class="page-item active"><a class="page-link" href="#">{{ i }}</a></li>
+    <li class="page-item active"><span class="page-link">{{ i }}</span></li>
 		{% else %}
 		<li class="page-item"><a class="page-link" href="?page={{i}}">{{ i }}</a></li>
 		{% endif %}
 		{% endfor %}
   </ul>
 		{% endif %}
-</nav> <!-- nav // -->
+</nav> <!-- paginator // -->
 
 <div class="row sagsol" style="margin-top: 3px;">
 	{% if products %}
@@ -220,7 +221,7 @@ Filtreye Göre Ara:<button data-popover-target="popover-right" class="focus:outl
   <ul class="pagination">
 		{% for i in products.paginator.page_range %}
 		{% if products.number == i %}
-    <li class="page-item active"><a class="page-link" href="#">{{ i }}</a></li>
+    <li class="page-item active"><span class="page-link">{{ i }}</span></li>
 		{% else %}
 		<li class="page-item"><a class="page-link" href="?page={{i}}">{{ i }}</a></li>
 		{% endif %}
