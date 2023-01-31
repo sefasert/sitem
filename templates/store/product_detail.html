@@ -88,8 +88,10 @@ Satıştan Kaldırıldığı Tarih:
 	</article>
 	<ul class="thumb">
 		<li>
-			<a href="{{ single_product.images.url }}"><img src="{{ single_product.images.url }}" class="inline rounded-lg mr-2" alt="Product Image"></img></a>
+			{% if single_product.images.url %}
+			{% endif %}
 			{% for i in product_gallery %}
+			<a href="{{ single_product.images.url }}"><img src="{{ single_product.images.url }}" class="inline rounded-lg mr-2" alt="Product Image"></img></a>
 			<a href="{{i.image.url}}"><img src="{{i.image.url}}" class="inline rounded-lg" alt="Product Image_Small"></img></a>
 			{% endfor %}
 			</li>
