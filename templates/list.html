@@ -19,16 +19,10 @@
 					<a href="{{ product.category.get_url }}" target="_blank" class="font-semibold hover:text-gray-700 break-all">{{ product.category }}</a>
 					</div>
 					<a href="{{ product.get_absolute_url }}" target="_blank" class="title mt-4">{{ product.product_name }}</a>
-					<div class="price-wrap mt-2">
-						{% if product.price <= 0 %}
-							<h5 style="color: gray"><b>Stokta kalmadı, sipariş için iletişime geçin</b></h5>
-							{% else %}
-					</div>
 				</div>
 							</figcaption>
 							<div class="col">
 				<span class="price" style="margin-right: 70px;">{{product.price}} ₺</span>
-				{% endif %}
 				<a href="{{ product.get_absolute_url }}" class="btn btn-primary" style="width: 120px; margin-bottom: 5px;">İncele</a>
 						</div>
 		</figure>
