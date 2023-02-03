@@ -7,8 +7,6 @@ from django.urls import reverse
 from ckeditor.fields import RichTextField
 
 from PIL import Image
-
-
 # Create your models here.
 
 class Product(models.Model):
