@@ -87,6 +87,7 @@ class Product(models.Model):
 
     views_count = models.IntegerField(default=0, blank=True, null=True)
 
+
     def get_absolute_url(self):
         return reverse("product_detail", args=[self.category.slug, self.slug])
 
