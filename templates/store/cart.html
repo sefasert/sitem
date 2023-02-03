@@ -129,17 +129,17 @@
 
 			<hr>
 			{% if user.id is None %}
-			<button type="button" class="btn btn-primary btn-block mt-2" disabled> Sipariş Vermek İçin Kaydol</button>
-			<span>Hesabın var mı? <a href="{% url 'login' %}">Giriş Yap</a></span>
-
+			<a href="{% url 'register' %}" target="_blank">
+			<button type="button" class="btn btn-block bg-blue-600 hover:bg-blue-700 text-white focus:ring-3 focus:ring-blue-300 mt-2 mb-1">Sipariş Vermek İçin Kaydol</button>
+			</a>
 			<a href="https://wa.me/905451973471" target="_blank">
 				<button type="button" class="btn bg-emerald-600 hover:bg-emerald-700 text-white focus:ring-3 mt-1">
-					<i class="fa fa-phone"></i> Whatsapp Sipariş (0545-197-3471)</button></a>
+					<i class="fa fa-phone"></i>&nbsp; Whatsapp Sipariş (0545-197-3471)&nbsp;&nbsp;&nbsp;</button></a>
 
 			{% else %}
 			<a href="{% url 'checkout' %}" class="btn btn-primary btn-block mt-4"> Sipariş Ver</a>
 			{% endif %}
-			<a href="{% url 'home' %}" class="btn btn-light btn-block mt-3">Ürünlere Geri Dön&nbsp;&nbsp;<i class="fas fa-arrow-right"></i></a>
+			<a href="{% url 'home' %}" class="btn text-white bg-gradient-to-br from-pink-500 to-orange-400 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-pink-200 dark:focus:ring-pink-800 px-5 py-2.5 text-center mr-2 mb-2 btn-block mt-3">Ürünlere Geri Dön&nbsp;&nbsp;<i class="fas fa-arrow-right"></i></a>
 
 		</div> <!-- card-body.// -->
 		</div> <!-- card.// -->
