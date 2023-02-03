@@ -82,7 +82,7 @@ class Product(models.Model):
     description   = RichTextField(blank=True)
     is_available  = models.BooleanField(default=False)
     created_date  = models.DateField(auto_now_add=True)
-    sontarih      = models.DateTimeField()
+    sontarih      = models.DateTimeField(blank=True, null=True)
     modified_date = models.DateTimeField(auto_now=True)
 
     views_count = models.IntegerField(default=0, blank=True, null=True)
