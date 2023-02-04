@@ -78,24 +78,55 @@ Satıştan Kaldırıldığı Tarih:
 
 			<aside class="col-md-5"> <!-- gallery -->
 	<article class="gallery-wrap">
+
 		<div class="img-big-wrap mainImage">
 	<center>
-		<img src="{{ single_product.images.url }}" class="rounded" alt="ürün resmi" style="height:360px;"></img>
-		<a href="{{ single_product.images.url }}" target="_blank">
-			<svg viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" stroke-width="4" fill="none" stroke-linecap="round" stroke-linejoin="round" class="css-i6dzq1 inline"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg> detaylı görmek için tıkla</a>
+		<div id="default-carousel" class="relative" data-carousel="static">
+		    <!-- Carousel wrapper -->
+		    <div class="relative h-96 overflow-hidden rounded-lg md:h-96">
+		         <!-- Item 1 -->
+		        <div class="hidden duration-700 ease-in-out" data-carousel-item>
+		            <img src="{{single_product.webp.url}}" class="rounded" alt="ürün resmi" style="height:360px;"></img>
+								<a href="{{single_product.images.url}}" target="_blank" class="-mt-8 -ml-1"><button type="button" class="px-1 py-1 text-sm ml-3 mt-1 text-white/70 btn bg-black/70 hover:bg-white/30"><svg viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" stroke-width="4" fill="none" stroke-linecap="round" stroke-linejoin="round" class="css-i6dzq1 inline -mt-1"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg> detaylı görmek için tıkla</button></a>
+		        </div>
+		        <!-- Item 2 -->
+
+		        <div class="hidden duration-700 ease-in-out" data-carousel-item>
+									{% if single_product.images2 and single_product.webp2 %}
+		            <img src="{{single_product.webp2.url}}" class="rounded" alt="ürün resmi" style="height:360px;"></img>
+								<a href="{{single_product.images2.url}}" target="_blank" class="-mt-8 -ml-1"><button type="button" class="px-1 py-1 text-sm ml-3 mt-1 text-white/70 btn bg-black/70 hover:bg-white/30"><svg viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" stroke-width="4" fill="none" stroke-linecap="round" stroke-linejoin="round" class="css-i6dzq1 inline -mt-1"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg> detaylı görmek için tıkla</button></a>
+								{% endif %}
+
+		        </div>
+
+		    </div>
+				{% if single_product.images2 and single_product.webp2 %}
+		    <!-- Slider controls -->
+		    <button type="button" class="absolute top-0 left-0 -ml-5 -mt-7 z-30 flex items-center justify-center h-80 mt-12 px-4 cursor-pointer group focus:outline-none" data-carousel-prev>
+		        <span class="inline-flex items-center justify-center w-8 h-8 rounded sm:w-10 sm:h-10 bg-black/50 dark:bg-gray-800/30 group-hover:bg-black/60">
+		            <svg aria-hidden="true" class="w-5 h-5 text-white sm:w-6 sm:h-6 dark:text-gray-800" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg>
+		            <span class="sr-only">Previous</span>
+		        </span>
+		    </button>
+		    <button type="button" class="absolute top-0 right-0 -mr-5 -mt-7 z-30 flex items-center justify-center h-80 mt-12 px-4 cursor-pointer group focus:outline-none" data-carousel-next>
+		        <span class="inline-flex items-center justify-center w-8 h-8 rounded sm:w-10 sm:h-10 bg-black/50 dark:bg-gray-800/30 group-hover:bg-black/60">
+		            <svg aria-hidden="true" class="w-5 h-5 text-white sm:w-6 sm:h-6 dark:text-gray-800" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+		            <span class="sr-only">Next</span>
+		        </span>
+		    </button>
+
+				<div class=" z-30  ml-32 mt-7 flex space-x-3  bottom-5 left-1/2">
+								<img src="{{single_product.webp.url}}" style="height:70px; width:70px;" class="inline rounded-lg -ml-32 hover:cursor-pointer" alt="Product Image" aria-current="false" aria-label="Slide 1" data-carousel-slide-to="0"></img>
+								<img src="{{single_product.webp2.url}}" style="height:70px; width:70px;" class="inline rounded-lg -ml-32 hover:cursor-pointer" alt="Product Image_Small" aria-current="false" aria-label="Slide 2" data-carousel-slide-to="1"></img>
+		    </div>
+
+				{% endif %}
+		</div>
 	</center>
 		</div>
+
 	</article>
-	<ul class="thumb">
-		<li>
-			{% if single_product.images.url %}
-			{% endif %}
-			{% for i in product_gallery %}
-			<a href="{{ single_product.images.url }}"><img src="{{ single_product.images.url }}" class="inline rounded-lg mr-2" alt="Product Image"></img></a>
-			<a href="{{i.image.url}}"><img src="{{i.image.url}}" class="inline rounded-lg" alt="Product Image_Small"></img></a>
-			{% endfor %}
-			</li>
-		</ul>
+
 			</aside> <!-- gallery // -->
 
 			<main class="col-md-7 border-left">  <!-- main -->

@@ -77,6 +77,8 @@ class Product(models.Model):
     price         = models.IntegerField()
     images        = models.ImageField(upload_to= "photos/products", blank=True, null=True)
     webp          = models.ImageField(upload_to= "webp/products", blank=True, null=True)
+    images2       = models.ImageField(upload_to= "photos2/products", blank=True, null=True)
+    webp2         = models.ImageField(upload_to= "webp2/products", blank=True, null=True)
     stock         = models.IntegerField()
     tags          = models.TextField(max_length=1000, blank=True)
     description   = RichTextField(blank=True)
@@ -102,6 +104,7 @@ class Product(models.Model):
             output_size = (2000, 2000)
             img.thumbnail(output_size)
             img.save(self.images.path)
+
 
 
 class ProductGallery(models.Model):
