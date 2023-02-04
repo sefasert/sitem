@@ -1,6 +1,6 @@
 from django.shortcuts import render, get_object_or_404, redirect
 
-from .models import Product, ProductGallery, Related_Product
+from .models import Product, Related_Product
 
 from category.models import Category
 
@@ -69,8 +69,7 @@ def product_detail(request, category_slug, product_slug):
         categories     = get_object_or_404(Category, slug=category_slug)
     except Exception as e:
         raise e
-    #product gallery işlemleri
-    product_gallery = ProductGallery.objects.filter(product_id=single_product.id)
+
     related_product = Related_Product.objects.filter(product_id=single_product.id)
 
 
@@ -78,7 +77,6 @@ def product_detail(request, category_slug, product_slug):
         "single_product" : single_product,
         "in_cart"        : in_cart,
         "categories"     : categories,
-        "product_gallery": product_gallery,
         "related_product": related_product,
         "products": products #benzer ürün
     }

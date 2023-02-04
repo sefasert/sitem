@@ -106,27 +106,6 @@ class Product(models.Model):
             img.save(self.images.path)
 
 
-
-class ProductGallery(models.Model):
-    product = models.ForeignKey(Product, default=None, on_delete=models.CASCADE)
-    image = models.ImageField(upload_to="store/products", blank=True, null=True)
-
-    def __str__(self):
-        return self.product.product_name
-
-    class Meta:
-        verbose_name_plural = "product gallery"
-
-    def save(self, *args, **kwargs):
-        super().save(*args, **kwargs)
-
-        img = Image.open(self.image.path)
-        if img.height > 2000 or img.width > 2000:
-            output_size = (2000, 2000)
-            img.thumbnail(output_size)
-            img.save(self.image.path)
-
-
 class Related_Product(models.Model):
     product = models.ForeignKey(Product, default=None, on_delete=models.CASCADE)
     benzerresimlink = models.CharField(max_length=200, blank=True, null=True)
