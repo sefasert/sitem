@@ -1,9 +1,9 @@
 {% load static %}
-<div class="row sagsol" style="margin-top: 3px;"> <!-- ürünler -->
+<div class="row sagsol" style="margin-top: 8px;"> <!-- ürünler -->
 	{% if products %}
 	{% for product in products %}
-	<div class="col-md-4">
-		<figure class="card card-product-grid rounded">
+	<div class="col-md-4 bg-zinc-100">
+		<figure class="card card-product-grid rounded-lg border-0">
 			<div class="img-wrap absolute hover:-translate-y-2.5 duration-1000">
 				<a href="{{ product.get_absolute_url }}">
 					<img class="rounded" src="{{ product.webp.url }}" alt="{{ product.product_name }}" />

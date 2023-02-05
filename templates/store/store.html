@@ -11,7 +11,7 @@ Arama - Engin Elektronik
 {% block content %}
 
 <!-- gelişmiş arama yap -->
-					<div class="container mt-1">
+					<div class="container mt-1 mb-1">
 <svg viewBox="0 0 24 24" width="18" height="18" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" class="css-i6dzq1 inline"><polygon points="22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3"></polygon></svg>
 Filtreye Göre Ara:<button data-popover-target="popover-right" class="focus:outline-none" data-popover-placement="right" type="button"><svg class="w-4 h-4 ml-2 text-gray-400 hover:text-gray-500" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-8-3a1 1 0 00-.867.5 1 1 0 11-1.731-1A3 3 0 0113 8a3.001 3.001 0 01-2 2.83V11a1 1 0 11-2 0v-1a1 1 0 011-1 1 1 0 100-2zm0 8a1 1 0 100-2 1 1 0 000 2z" clip-rule="evenodd"></path></svg></button>
 <div data-popover id="popover-right" role="tooltip" class="w-48 absolute z-10 invisible inline-block text-sm font-light text-gray-500 transition-opacity duration-300 bg-white border border-gray-200 rounded-lg shadow-sm opacity-0 dark:bg-gray-800 dark:border-gray-600 dark:text-gray-400">
@@ -107,12 +107,12 @@ Filtreye Göre Ara:<button data-popover-target="popover-right" class="focus:outl
 </div>
 
 <!-- ========================= SECTION CONTENT ========================= -->
-<section class="section-content padding-y" style="padding-top:10px">
+<section class="section-content padding-y bg-zinc-100" style="padding-top:10px">
 <div class="container">
 <div class="row">
 
 	<aside class="col-md-3 md:flex" style="margin-left: -15px;">
-<div class="flex card w-72" style="height:1200px;">
+<div class="flex card w-72 rounded-xl border-8 border-white mt-2" style="height:1200px;">
 	<article class="filter-group">
 		<header class="card-header">
 			<i class="icon-control fa fa-list"></i>
@@ -135,13 +135,13 @@ Filtreye Göre Ara:<button data-popover-target="popover-right" class="focus:outl
 
 	<main class="col-md-9">
 
-<header class="border-bottom mb-4 pb-3">
-		<div class="form-inline">
+<header class="mb-4 pb-1 rounded-lg border-white border-8 bg-white">
+		<div class="form-inline ml-3">
 			{% if categories %}
 			<span class="mr-md-auto"> <b> {{ product_count }} </b> ürün bulundu </span>
 {% endif %}
 		</div>
-		<ul class="breadcrumb mt-1">
+		<ul class="breadcrumb mt-2 ml-3">
 {% if categories %}
   <li class="active"><a href="{% url 'home'  %}">Anasayfa&nbsp;</a></li>
 	<svg viewBox="0 0 24 24" width="22" height="22" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" class="css-i6dzq1"><polyline points="9 18 15 12 9 6"></polyline></svg>&nbsp;
@@ -149,6 +149,7 @@ Filtreye Göre Ara:<button data-popover-target="popover-right" class="focus:outl
 	{% elif product_count > 0 %}
 	<li>arama sonucu: ({{product_count}}) adet ürün bulundu.</li>
 	{% else %}
+	Aradığınız ürün bulunamadı:
 {% endif %}
 </ul>
 </header><!-- sect-heading -->
@@ -167,11 +168,11 @@ Filtreye Göre Ara:<button data-popover-target="popover-right" class="focus:outl
 		{% endif %}
 </nav> <!-- paginator // -->
 
-<div class="row sagsol" style="margin-top: 3px;">
+<div class="row sagsol" style="margin-top: -10px;">
 	{% if products %}
 	{% for product in products %}
 	<div class="col-md-4">
-		<figure class="card card-product-grid rounded">
+		<figure class="card card-product-grid rounded border-0">
 			<div class="img-wrap absolute hover:-translate-y-2.5 duration-1000">
 				<a href="{{ product.get_absolute_url }}" target="_blank"> <img src="{{ product.webp.url }}"
 				class="rounded" alt="{{ product.product_name }}" /></a>
@@ -200,7 +201,7 @@ Filtreye Göre Ara:<button data-popover-target="popover-right" class="focus:outl
 	{% else %}
 </div> <!-- row end.// -->
 <img src="{% static 'images/notfound.png' %}" style="margin-left: 130px; margin-top: -20px;"></img>
-<h2 class="font-semibold text-xl" style="margin-left: 60px;">Arama bulunamadı.</h2>
+<h2 class="font-semibold text-xl" style="margin-left: 60px;">Aradığınız ürün bulunamadı.</h2>
 </div>
  {% endif %}
 </div>
