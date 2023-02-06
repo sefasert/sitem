@@ -76,7 +76,7 @@ class Product(models.Model):
     durum         = models.CharField(max_length=50, choices=DURUM_CHOICE, blank=True, null=True)
     yeni          = models.CharField(max_length=10, choices=YENI_CHOICE, blank=True, null=True)
     price         = models.IntegerField()
-    images        = models.ImageField(upload_to= "photos/products", blank=True, null=True)
+    images        = models.ImageField(upload_to= "photos/products", blank=True, null=True, default=False)
     webp          = models.ImageField(upload_to= "webp/products", blank=True, null=True)
     images2       = models.ImageField(upload_to= "photos2/products", blank=True, null=True)
     webp2         = models.ImageField(upload_to= "webp2/products", blank=True, null=True)
