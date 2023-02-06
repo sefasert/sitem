@@ -36,8 +36,10 @@
 <article class="gallery-wrap">
 	<div class="img-big-wrap mainImage">
 <center>
+						{% if single_product.images and single_product.webp %}
 	<img src="{{ single_product.webp.url }}" alt="ürün resmi" style="height:360px;"
 	class="filter grayscale hover:grayscale-0 transition-all duration-300"> </img>
+						{% endif %}
 </center>
 	</div>
 </article>
@@ -66,6 +68,8 @@
 <span class="text-base">{{ single_product.description | safe }} </span>
 <br>
 <hr class="mb-2">
+<span class="bg-gray-100 text-gray-800 inline-flex items-center px-0.5  rounded mr-2 dark:bg-gray-700 dark:text-gray-400 border border-gray-500">
+<span class="price h4 rounded text-gray-500 mt-2">{{single_product.price}} ₺</span></span><br><br>
 	<h5 class="text-xl text-gray-500"><b>Bu ürün satıldı, satıştan kaldırıldı.</b></h5>
 Satıştan Kaldırıldığı Tarih:
 <span class="bg-gray-100 text-gray-800 text-sm font-medium inline-flex items-center px-2.5 py-0.5 rounded mr-2 dark:bg-gray-700 dark:text-gray-400 border border-gray-500">
@@ -75,10 +79,8 @@ Satıştan Kaldırıldığı Tarih:
 	{% else %}
 	<div class="card mt-1 border-8 border-white rounded-lg">
 		<div class="row no-gutters">
-
 			<aside class="col-md-5"> <!-- gallery -->
 	<article class="gallery-wrap">
-
 		<div class="img-big-wrap mainImage">
 	<center>
 		<div id="default-carousel" class="relative" data-carousel="static">
@@ -86,21 +88,31 @@ Satıştan Kaldırıldığı Tarih:
 		    <div class="relative h-96 overflow-hidden rounded-lg md:h-96">
 		         <!-- Item 1 -->
 		        <div class="hidden duration-700 ease-in-out" data-carousel-item>
+														{% if single_product.images and single_product.webp %}
 		            <img src="{{single_product.webp.url}}" class="rounded" alt="ürün resmi" style="height:360px;"></img>
 								<a href="{{single_product.images.url}}" target="_blank" class="-mt-8 -ml-1"><button type="button" class="px-1 py-1 text-sm ml-3 mt-1 text-white/70 btn bg-black/70 hover:bg-white/30"><svg viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" stroke-width="4" fill="none" stroke-linecap="round" stroke-linejoin="round" class="css-i6dzq1 inline -mt-1"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg> detaylı görmek için tıkla</button></a>
+																{% else %}
+																<div role="status" class=" animate-pulse ">
+    <div class="-ml-6  flex items-center w-96 h-96  mt-3 bg-zinc-200 rounded  dark:bg-gray-700">
+				<div class="ml-4 px-3 py-1 text-xs font-medium leading-none text-center text-blue-800 bg-blue-200 rounded-full  dark:bg-blue-900 dark:text-blue-200">ürün görseli yeniden işleniyor, birazdan hazır olur...</div>
+    </div>
+											 	{% endif %}
 		        </div>
 		        <!-- Item 2 -->
-
 		        <div class="hidden duration-700 ease-in-out" data-carousel-item>
-									{% if single_product.images2 and single_product.webp2 %}
+									{% if single_product.webp2 %}
 		            <img src="{{single_product.webp2.url}}" class="rounded" alt="ürün resmi yüklenmeyi bekliyor" style="height:360px;"></img>
+								{% elif single_product.images2 %}
 								<a href="{{single_product.images2.url}}" target="_blank" class="-mt-8 -ml-1"><button type="button" class="px-1 py-1 text-sm ml-3 mt-1 text-white/70 btn bg-black/70 hover:bg-white/30"><svg viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" stroke-width="4" fill="none" stroke-linecap="round" stroke-linejoin="round" class="css-i6dzq1 inline -mt-1"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg> detaylı görmek için tıkla</button></a>
+								{% else %}
+								<div role="status" class="space-y-8 animate-pulse md:space-y-0 md:space-x-8 md:flex md:items-center">
+<div class="flex items-center justify-center w-96 h-96 ml-16 mt-3 bg-gray-300 rounded sm:w-96 dark:bg-gray-700">
+<div class="px-3 py-1 text-xs font-medium leading-none text-center text-blue-800 bg-blue-200 rounded-full  dark:bg-blue-900 dark:text-blue-200">ürün görseli yeniden işleniyor, birazdan hazır olur...</div>
+</div>
 								{% endif %}
-
 		        </div>
-
 		    </div>
-				{% if single_product.images2 and single_product.webp2 %}
+				{% if single_product.webp2 %}
 		    <!-- Slider controls -->
 		    <button type="button" class="absolute top-0 left-0 -ml-5 -mt-7 z-30 flex items-center justify-center h-80 mt-12 px-4 cursor-pointer group focus:outline-none" data-carousel-prev>
 		        <span class="inline-flex items-center justify-center w-8 h-8 rounded sm:w-10 sm:h-10 bg-black/50 dark:bg-gray-800/30 group-hover:bg-black/60">
@@ -114,23 +126,18 @@ Satıştan Kaldırıldığı Tarih:
 		            <span class="sr-only">Next</span>
 		        </span>
 		    </button>
-
 				<div class=" z-30  ml-32 mt-7 flex space-x-3  bottom-5 left-1/2">
 								<img src="{{single_product.webp.url}}" style="height:70px; width:70px;" class="inline rounded-lg -ml-32 hover:cursor-pointer" alt="Product Image" aria-current="false" aria-label="Slide 1" data-carousel-slide-to="0"></img>
 								<img src="{{single_product.webp2.url}}" style="height:70px; width:70px;" class="inline rounded-lg -ml-32 hover:cursor-pointer" alt="Product Image_Small" aria-current="false" aria-label="Slide 2" data-carousel-slide-to="1"></img>
 		    </div>
-
 				{% endif %}
 		</div>
 	</center>
 		</div>
-
 	</article>
-
 			</aside> <!-- gallery // -->
 
 			<main class="col-md-7 border-left">  <!-- main -->
-
 	<div class="row"> <!-- info -->
 		<div class="btn-group dropright">
 		  <button type="button" class="btn bg-green-50 rounded ml-3 hover:bg-slate-50 mt-1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
