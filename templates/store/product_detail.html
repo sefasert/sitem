@@ -101,8 +101,8 @@ Satıştan Kaldırıldığı Tarih:
 		        <!-- Item 2 -->
 		        <div class="hidden duration-700 ease-in-out" data-carousel-item>
 									{% if single_product.webp2 %}
-		            <img src="{{single_product.webp2.url}}" class="rounded" alt="ürün resmi yüklenmeyi bekliyor" onerror="webp2Function()" style="height:360px;"></img>
-								<div id="webp2"> </div>
+		            <img src="{{single_product.webp2.url}}" class="rounded" alt="ürün resmi yüklenmeyi bekliyor" style="height:360px;"></img>
+								{% elif single_product.images2 %}
 								<a href="{{single_product.images2.url}}" target="_blank" class="-mt-8 -ml-1"><button type="button" class="px-1 py-1 text-sm ml-3 mt-1 text-white/70 btn bg-black/70 hover:bg-white/30"><svg viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" stroke-width="4" fill="none" stroke-linecap="round" stroke-linejoin="round" class="css-i6dzq1 inline -mt-1"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg> detaylı görmek için tıkla</button></a>
 								{% else %}
 								<div role="status" class="space-y-8 animate-pulse md:space-y-0 md:space-x-8 md:flex md:items-center">
