@@ -69,7 +69,7 @@ def product_detail(request, category_slug, product_slug):
         categories     = get_object_or_404(Category, slug=category_slug)
     except Exception as e:
         raise e
-        return redirect("product_detail")
+
 
     related_product = Related_Product.objects.filter(product_id=single_product.id)
 
