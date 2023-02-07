@@ -76,7 +76,7 @@ class Product(models.Model):
     durum         = models.CharField(max_length=50, choices=DURUM_CHOICE, blank=True, null=True)
     yeni          = models.CharField(max_length=10, choices=YENI_CHOICE, blank=True, null=True)
     price         = models.IntegerField()
-    images        = models.ImageField(upload_to= "photos/products", blank=True, null=True, default=False)
+    images        = models.ImageField(upload_to= "photos/products", blank=True, null=True, editable=True)
     webp          = models.ImageField(upload_to= "webp/products", blank=True, null=True)
     images2       = models.ImageField(upload_to= "photos2/products", blank=True, null=True)
     webp2         = models.ImageField(upload_to= "webp2/products", blank=True, null=True)
@@ -96,15 +96,6 @@ class Product(models.Model):
 
     def __str__(self):
         return self.product_name
-
-    def save(self, *args, **kwargs):
-        super().save(*args, **kwargs)
-
-        img = Image.open(self.images.path)
-        if img.height > 2000 or img.width > 2000:
-            output_size = (2000, 2000)
-            img.thumbnail(output_size)
-            img.save(self.images.path)
 
 
 class Related_Product(models.Model):
