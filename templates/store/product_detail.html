@@ -36,7 +36,7 @@
 <article class="gallery-wrap">
 	<div class="img-big-wrap mainImage">
 <center>
-						{% if single_product.images and single_product.webp %}
+						{% if single_product.webp %}
 	<img src="{{ single_product.webp.url }}" alt="ürün resmi" style="height:360px;"
 	class="filter grayscale hover:grayscale-0 transition-all duration-300"> </img>
 						{% endif %}
@@ -88,15 +88,15 @@ Satıştan Kaldırıldığı Tarih:
 		    <div class="relative h-96 overflow-hidden rounded-lg md:h-96">
 		         <!-- Item 1 -->
 		        <div class="hidden duration-700 ease-in-out" data-carousel-item>
-														{% if single_product.images and single_product.webp %}
-		            <img src="{{single_product.webp.url}}" class="rounded" alt="ürün resmi" style="height:360px;"></img>
-								<a href="{{single_product.images.url}}" target="_blank" class="-mt-8 -ml-1"><button type="button" class="px-1 py-1 text-sm ml-3 mt-1 text-white/70 btn bg-black/70 hover:bg-white/30"><svg viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" stroke-width="4" fill="none" stroke-linecap="round" stroke-linejoin="round" class="css-i6dzq1 inline -mt-1"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg> detaylı görmek için tıkla</button></a>
-																{% else %}
-																<div role="status" class=" animate-pulse ">
-    <div class="-ml-6  flex items-center w-96 h-96  mt-3 bg-zinc-200 rounded  dark:bg-gray-700">
-				<div class="ml-4 px-3 py-1 text-xs font-medium leading-none text-center text-blue-800 bg-blue-200 rounded-full  dark:bg-blue-900 dark:text-blue-200">ürün görseli yeniden işleniyor, birazdan hazır olur...</div>
-    </div>
-											 	{% endif %}
+														{% if single_product.webp and single_product.images %}
+		            <img src="{{single_product.webp.url}}" class="rounded" alt="ürün resmi yüklenmeyi bekliyor" style="height:360px;" onerror="this.onerror=null;this.src='https://media3.giphy.com/media/W22b2eea2XxB6DiTWg/giphy.gif?cid=790b7611536fa6c8f6d4bf69482015ab1fd474ac5b584899&rid=giphy.gif&ct=g'"></img>
+																<a href="{{single_product.images.url}}" target="_blank" class="-mt-8 -ml-1"><button type="button" class="px-1 py-1 text-sm ml-3 mt-1 text-white/70 btn bg-black/70 hover:bg-white/30"><svg viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" stroke-width="4" fill="none" stroke-linecap="round" stroke-linejoin="round" class="css-i6dzq1 inline -mt-1"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg> detaylı görmek için tıkla</button></a>
+														{% else %}
+														<div role="status" class=" animate-pulse ">
+<div class="-ml-6  flex items-center w-96 h-96  mt-3 bg-zinc-200 rounded  dark:bg-gray-700">
+		<div class="ml-4 px-3 py-1 text-xs font-medium leading-none text-center text-blue-800 bg-blue-200 rounded-full  dark:bg-blue-900 dark:text-blue-200">ürün görseli yeniden işleniyor, birazdan hazır olur...</div>
+</div>
+													{% endif %}
 		        </div>
 		        <!-- Item 2 -->
 		        <div class="hidden duration-700 ease-in-out" data-carousel-item>
