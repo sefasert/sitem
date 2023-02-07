@@ -101,7 +101,7 @@ Satıştan Kaldırıldığı Tarih:
 		        <!-- Item 2 -->
 		        <div class="hidden duration-700 ease-in-out" data-carousel-item>
 									{% if single_product.webp2 %}
-		            <img src="{{single_product.webp2.url}}" class="rounded" alt="ürün resmi yüklenmeyi bekliyor" style="height:360px;"></img>
+		            <img src="{{single_product.webp2.url}}" class="rounded" alt="ürün resmi yüklenmeyi bekliyor" style="height:360px;" onerror="this.onerror=null;this.src='{% static 'images/isleniyor.gif' %}'"></img>
 								{% else %}
 								<div role="status" class="space-y-8 animate-pulse md:space-y-0 md:space-x-8 md:flex md:items-center">
 <div class="flex items-center justify-center w-96 h-96 ml-16 mt-3 bg-gray-300 rounded sm:w-96 dark:bg-gray-700">
@@ -128,8 +128,8 @@ Satıştan Kaldırıldığı Tarih:
 		        </span>
 		    </button>
 				<div class=" z-30  ml-32 mt-7 flex space-x-3  bottom-5 left-1/2">
-								<img src="{{single_product.webp.url}}" style="height:70px; width:70px;" class="inline rounded-lg -ml-32 hover:cursor-pointer" alt="Product Image" aria-current="false" aria-label="Slide 1" data-carousel-slide-to="0"></img>
-								<img src="{{single_product.webp2.url}}" style="height:70px; width:70px;" class="inline rounded-lg -ml-32 hover:cursor-pointer" alt="Product Image_Small" aria-current="false" aria-label="Slide 2" data-carousel-slide-to="1"></img>
+								<img src="{{single_product.webp.url}}" style="height:70px; width:70px;" class="inline rounded-lg -ml-32 hover:cursor-pointer" alt="ürün resmi yüklenmeyi bekliyor" onerror="this.onerror=null;this.src='{% static 'images/isleniyor.gif' %}'" aria-current="false" aria-label="Slide 1" data-carousel-slide-to="0"></img>
+								<img src="{{single_product.webp2.url}}" style="height:70px; width:70px;" class="inline rounded-lg -ml-32 hover:cursor-pointer" alt="ürün resmi yüklenmeyi bekliyor" onerror="this.onerror=null;this.src='{% static 'images/isleniyor.gif' %}'" aria-current="false" aria-label="Slide 2" data-carousel-slide-to="1"></img>
 		    </div>
 				{% endif %}
 		</div>
