@@ -1,3 +1,5 @@
+from PIL import Image
+
 from django.db import models
 
 from category.models import Category
@@ -5,7 +7,6 @@ from category.models import Category
 from django.urls import reverse
 
 from ckeditor.fields import RichTextField
-
 
 # Create your models here.
 
@@ -87,15 +88,30 @@ class Product(models.Model):
     created_date  = models.DateField(auto_now_add=True)
     sontarih      = models.DateTimeField(default=False, blank=True, null=True)
     modified_date = models.DateTimeField(auto_now=True)
-
     views_count = models.IntegerField(default=0, blank=True, null=True)
-
 
     def get_absolute_url(self):
         return reverse("product_detail", args=[self.category.slug, self.slug])
 
     def __str__(self):
         return self.product_name
+
+    def save(self, *args, **kwargs):
+        super().save(*args, **kwargs)
+
+        if self.images:
+            img = Image.open(self.images.path)
+            if img.height > 1600 or img.width > 1600:
+                output_size = (1600, 1600)
+                img.thumbnail(output_size)
+                img.save(self.images.path)
+
+        if self.images2:
+            img = Image.open(self.images2.path)
+            if img.height > 1600 or img.width > 1600:
+                output_size = (1600, 1600)
+                img.thumbnail(output_size)
+                img.save(self.images2.path)
 
 
 class Related_Product(models.Model):
