@@ -173,7 +173,7 @@ Filtreye Göre Ara:<button data-popover-target="popover-right" class="focus:outl
 		<figure class="card card-product-grid rounded border-0">
 			<div class="img-wrap absolute hover:-translate-y-2.5 duration-1000">
 				<a href="{{ product.get_absolute_url }}" target="_blank"> <img src="{{ product.webp.url }}"
-				class="rounded" alt="{{ product.product_name }}" /></a>
+				class="rounded" alt="{{ product.product_name }}" onerror="this.onerror=null;this.src='{% static 'images/isleniyor.gif' %}'" /></a>
 				<span class="badge badge-pill badge-light" style="font-size:11px; margin-left: -5px; margin-top:-3px">Stok: {{product.stock}} Adet</span>
 				{% if product.yeni %}
 <span class="badge  badge-danger badge-yeni" style="font-size:11px; margin-left: 243px; margin-top:-3px">
