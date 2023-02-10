@@ -69,25 +69,5 @@
 <script type='text/javascript' src='https://platform-api.sharethis.com/js/sharethis.js#property=6384c931233b3c001362c788&product=inline-share-buttons' async='async' defer>
 </script>
 
-
-
-<script>
-$(document).ready(function() {
-    $('#anasayfa').click(function(event) {
-        event.preventDefault();
-        $.ajax({
-            url: "{% url 'home' %}",
-            success: function(data) {
-                window.location.href = "{% url 'home' %}";
-            }
-        });
-    });
-});
-</script>
-
-
-
-
-
 </body>
 </html>
