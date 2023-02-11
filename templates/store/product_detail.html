@@ -57,7 +57,7 @@
 
 			<form action="{% url 'add_cart' single_product.id  %}" method="POST">
 				{% csrf_token %}
-<article class="content-body" style="margin-left: -25px;">
+<article class="content-body" style="margin-left: -20px;">
 <h2 class="flex text-3xl font-bold mb-1">{{ single_product.product_name }}</h2>
 <div class="mb-3">
  <b>Uyumlu Marka:&nbsp;</b>{{ single_product.brand }}<br>
@@ -153,7 +153,7 @@ Satıştan Kaldırıldığı Tarih:
 
 				<form action="{% url 'add_cart' single_product.id  %}" method="POST">
 					{% csrf_token %}
-	<article class="content-body" style="margin-left: -25px;">
+	<article class="content-body" style="margin-left: -20px;">
 	<h2 class="flex text-3xl font-bold mb-2">{{ single_product.product_name }}</h2>
 	<div class="mb-3">
 	 <b>Uyumlu Marka:&nbsp;</b>{{ single_product.brand }}<br>
