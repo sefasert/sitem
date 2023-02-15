@@ -59,8 +59,10 @@
           <div class="widget-header">
             <small class="text-sm">Hoşgeldin Ziyaretçi</small>
             <div>
+              {% comment %}
               <a href="{% url 'login' %}">Giriş Yap</a> <span class="dark-transp"> | </span>
               <a href="{% url 'register' %}">Kaydol</a>
+              {% endcomment %}
             </div>
           </div>
           {% else %}
