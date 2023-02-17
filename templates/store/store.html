@@ -107,7 +107,7 @@ Filtreye Göre Ara:<button data-popover-target="popover-right" class="focus:outl
 </div>
 
 <!-- ========================= SECTION CONTENT ========================= -->
-<section class="section-content padding-y bg-zinc-100" style="padding-top:10px">
+<section class="section-content padding-y bg-zinc-50" style="padding-top:10px">
 <div class="container">
 <div class="row">
 
@@ -145,7 +145,7 @@ Filtreye Göre Ara:<button data-popover-target="popover-right" class="focus:outl
 {% if categories %}
   <li class="active"><a href="{% url 'home'  %}">Anasayfa&nbsp;</a></li>
 	<svg viewBox="0 0 24 24" width="22" height="22" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" class="css-i6dzq1"><polyline points="9 18 15 12 9 6"></polyline></svg>&nbsp;
-	<li>{{ categories }}</li>
+	<li class="font-semibold">{{ categories }}</li>
 	{% elif product_count > 0 %}
 	<li>arama sonucu: ({{product_count}}) adet ürün bulundu.</li>
 {% endif %}
@@ -174,24 +174,22 @@ Filtreye Göre Ara:<button data-popover-target="popover-right" class="focus:outl
 			<div class="img-wrap absolute hover:-translate-y-2.5 duration-1000">
 				<a href="{{ product.get_absolute_url }}" target="_blank"> <img src="{{ product.webp.url }}"
 				class="rounded" alt="{{ product.product_name }}" onerror="this.onerror=null;this.src='{% static 'images/isleniyor.gif' %}'" /></a>
-				<span class="badge badge-pill badge-light" style="font-size:11px; margin-left: -5px; margin-top:-3px">Stok: {{product.stock}} Adet</span>
 				{% if product.yeni %}
-<span class="badge  badge-danger badge-yeni" style="font-size:11px; margin-left: 243px; margin-top:-3px">
-&nbsp;{{product.yeni}}&nbsp;</span>
+<span class="badge  badge-danger badge-yeni" style="font-size:11px; margin-left: 243px; margin-top:-3px">&nbsp;{{product.yeni}}&nbsp;</span>
 				{% endif %}
 			</div>
 			<figcaption class="info-wrap">
 				<div class="fix-height">
 					<div style="margin-left: -5px; margin-top: 215px;" class="badge badge-pill badge-light hover:bg-gray-300">
 					<a href="{{ product.category.get_url }}" target="_blank" class="font-semibold hover:text-gray-700 break-all">{{ product.category }}</a>
+					<span class="badge badge-pill badge-light inline" style="font-size:11px; margin-left:230px; margin-top:-10px">{{product.stock}} Adet</span>
 					</div>
 					<a href="{{ product.get_absolute_url }}" target="_blank" class="title mt-4">{{ product.product_name }}</a>
 				</div>
 							</figcaption>
 							<div class="col">
-				<span class="price" style="margin-right: 70px;">{{ product.price }} ₺</span>
-				<a href="{{ product.get_absolute_url }}" class="btn btn-primary"
-				style="width: 120px; margin-bottom: 5px;">İncele</a>
+				<span class="price text-lg" style="margin-right: 70px;">{{ product.price }}&nbsp;</span>
+				<span style="margin-left:-78px">₺</span>
 	</div>
 		</figure>
 	</div>

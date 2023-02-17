@@ -4,7 +4,7 @@
 {% block description %}{{ single_product.product_name }} - {{ single_product.description | safe }}  {% endblock %}
 {% block keywords %}{{ single_product.tags }}{% endblock %}
 {% block content %}
-<section class="section-content padding-y bg-zinc-100"> <!-- section1 -->
+<section class="section-content padding-y bg-zinc-50"> <!-- section1 -->
 <div class="container"> <!-- container -->
 
 	<ul class="breadcrumb" style="margin-top: -17px; margin-bottom: 5px;"> <!-- breadcrumb -->
@@ -160,7 +160,7 @@ Satıştan Kaldırıldığı Tarih:
 	 <b>Durum:&nbsp;</b>{{ single_product.durum }}<br>
 	 <b>Stok:</b>
 {% if single_product.stock == 1 %}
-	 {{ single_product.stock }} Adet Kaldı
+	 {{ single_product.stock }} Adet
 	 {% else %}
 	 {{ single_product.stock }} Adet
 	 {% endif %}
@@ -197,7 +197,7 @@ Satıştan Kaldırıldığı Tarih:
 </section>  <!-- section1 // -->
 
 {% if related_product %} <!-- related_product -->
-<section class="pt-3 pb-3 -mt-12 bg-zinc-100">
+<section class="pt-3 pb-3 -mt-12 bg-zinc-50">
     <div class="container mx-auto">
         <div class="row">
 					<button class="btn hover:cursor-default select-none hover:bg-sky-100 bg-sky-50 rounded ml-3">Benzer Ürünler:</button>
@@ -216,9 +216,8 @@ Satıştan Kaldırıldığı Tarih:
 																		</div>
 																					</figcaption>
 																					<div class="col">
-																		<span class="price" style="margin-right: 70px;">{{ i.benzerfiyat }} ₺</span>
-																		<a href="{{ i.benzerlink }}" target="_blank" class="btn btn-primary"
-																		style="width: 120px; margin-bottom: 5px;">İncele</a>
+																		<span class="price text-lg" style="margin-right: 70px;">{{ i.benzerfiyat }}&nbsp;</span>
+																		<span style="margin-left:-78px">₺</span>
 															</div>
 																</figure>
 																</div>
