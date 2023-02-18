@@ -60,6 +60,7 @@ class Product(models.Model):
         ("AUO", "auo"),
         ("Acer", "acer"),
         ("DARFON", "darfon"),
+        ("INNOLUX", "innolux"),
     }
 
     DURUM_CHOICE = {
