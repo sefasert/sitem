@@ -159,6 +159,10 @@ Satıştan Kaldırıldığı Tarih:
 	 {% else %}
 	 {{ single_product.stock }} Adet
 	 {% endif %}
+	 {% if single_product.ekran %}
+	 <br>
+	 <b>Ekran:&nbsp;</b>{{ single_product.ekran }}
+	 {% endif %}
 	</div>
 	<b class="text-base text-md">Bu ürün hakkında:</b>
 	<span class="text-base">{{ single_product.description | safe }} </span>

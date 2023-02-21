@@ -77,6 +77,7 @@ class Product(models.Model):
         ("LED", "led"),
         ("LCD", "lcd"),
         ("Plazma", "plazma"),
+        ("LED-LCD", "led-lcd")
     }
 
     category      = models.ForeignKey(Category, blank=True, null=True, on_delete=models.CASCADE)
