@@ -73,6 +73,12 @@ class Product(models.Model):
         ("Yeni", "yeni"),
     }
 
+    EKRAN_CHOICE = {
+        ("LED", "led"),
+        ("LCD", "lcd"),
+        ("Plazma", "plazma"),
+    }
+
     category      = models.ForeignKey(Category, blank=True, null=True, on_delete=models.CASCADE)
     product_name  = models.CharField(max_length=200)
     slug          = models.SlugField(max_length=200, unique=True)
@@ -85,6 +91,7 @@ class Product(models.Model):
     images2       = models.ImageField(upload_to= "photos2/products", blank=True, null=True)
     webp2         = models.ImageField(upload_to= "webp2/products", blank=True, null=True)
     stock         = models.IntegerField()
+    ekran         = models.CharField(max_length=10, choices=EKRAN_CHOICE, blank=True, null=True)
     tags          = models.TextField(max_length=1000, blank=True)
     description   = RichTextField(blank=True)
     is_available  = models.BooleanField(default=False)
