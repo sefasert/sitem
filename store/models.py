@@ -52,7 +52,7 @@ class Product(models.Model):
         ("Hisense", "hisense"),
         ("SEG", "seg"),
         ("Hi-Level", "hi-level"),
-        ("RONAX", "ronax"),
+        ("RONAX-TELENOVA", "ronax-telenova"),
         ("BOE", "boe"),
         ("WOON", "woon"),
         ("SHARP", "sharp"),
