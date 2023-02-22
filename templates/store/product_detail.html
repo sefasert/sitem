@@ -59,6 +59,7 @@
  <b>Durum:&nbsp;</b>{{ single_product.durum }}<br>
  <b>Stok:&nbsp;</b>Yok
  <br>
+ 	{% if single_product.ekran %}
  <b>Ekran:&nbsp;</b>{{ single_product.ekran }}
  {% endif %}
 </div>
@@ -162,8 +163,8 @@ Satıştan Kaldırıldığı Tarih:
 	 {% else %}
 	 {{ single_product.stock }} Adet
 	 {% endif %}
-	 {% if single_product.ekran %}
 	 <br>
+	 	{% if single_product.ekran %}
 	 <b>Ekran:&nbsp;</b>{{ single_product.ekran }}
 	 {% endif %}
 	</div>
