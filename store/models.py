@@ -80,28 +80,28 @@ class Product(models.Model):
         ("LED-LCD", "led-lcd")
     }
 
-    category      = models.ForeignKey(Category, blank=True, null=True, on_delete=models.CASCADE)
-    product_name  = models.CharField(max_length=200)
-    slug          = models.SlugField(max_length=200, unique=True)
-    brand         = models.CharField(max_length=100, choices=BRAND_CHOICE, blank=True, null=True)
-    durum         = models.CharField(max_length=50, choices=DURUM_CHOICE, blank=True, null=True)
-    yeni          = models.CharField(max_length=10, choices=YENI_CHOICE, blank=True, null=True)
+    category      = models.ForeignKey(Category, blank=True, on_delete=models.CASCADE)
+    product_name  = models.CharField(max_length=200, blank=False)
+    slug          = models.SlugField(max_length=200, unique=True, blank=False)
+    brand         = models.CharField(max_length=100, choices=BRAND_CHOICE, blank=True)
+    durum         = models.CharField(max_length=50, choices=DURUM_CHOICE, blank=True)
+    yeni          = models.CharField(max_length=10, choices=YENI_CHOICE, blank=True)
     price         = models.IntegerField()
-    images        = models.ImageField(upload_to= "photos/products", blank=True, null=True)
-    webp          = models.ImageField(upload_to= "webp/products", blank=True, null=True)
-    images2       = models.ImageField(upload_to= "photos2/products", blank=True, null=True)
-    webp2         = models.ImageField(upload_to= "webp2/products", blank=True, null=True)
+    images        = models.ImageField(upload_to= "photos/products", blank=True)
+    webp          = models.ImageField(upload_to= "webp/products", blank=True)
+    images2       = models.ImageField(upload_to= "photos2/products", blank=True)
+    webp2         = models.ImageField(upload_to= "webp2/products", blank=True)
     stock         = models.IntegerField()
-    ekran         = models.CharField(max_length=10, choices=EKRAN_CHOICE, blank=True, null=True)
+    ekran         = models.CharField(max_length=10, choices=EKRAN_CHOICE, blank=True)
     tags          = models.TextField(max_length=1000, blank=True)
     description   = RichTextField(blank=True)
     is_available  = models.BooleanField(default=False)
     created_date  = models.DateField(auto_now_add=True)
-    sontarih      = models.DateTimeField(default=False, blank=True, null=True)
+    sontarih      = models.DateTimeField(default=False, blank=True)
     modified_date = models.DateTimeField(auto_now=True)
-    views_count = models.IntegerField(default=0, blank=True, null=True)
+    views_count = models.IntegerField(default=0, blank=True)
 
-    def get_absolute_url(self):
+    def get_absolute_url(self): #kategori slug ve ürünün kendi slug'ı al
         return reverse("product_detail", args=[self.category.slug, self.slug])
 
     def __str__(self):
@@ -126,8 +126,8 @@ class Product(models.Model):
 
 
 class Related_Product(models.Model):
-    product = models.ForeignKey(Product, default=None, on_delete=models.CASCADE)
-    benzerresimlink = models.CharField(max_length=200, blank=True, null=True)
+    product = models.ForeignKey(Product, on_delete=models.CASCADE)
+    benzerresimlink = models.CharField(max_length=200, blank=True)
     benzerad  = models.CharField(max_length=200)
     benzerlink = models.CharField(max_length=200)
     benzerfiyat = models.IntegerField()
