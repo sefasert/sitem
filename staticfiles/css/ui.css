@@ -34,7 +34,7 @@ a:hover {
 
 .content-body {
   flex: 1 1 auto;
-  padding: 2rem 2.3rem;
+  padding: 1rem 2.3rem;
 }
 
 /* =================  DEFINED VARIABLES =================== */
@@ -628,8 +628,8 @@ p:last-child {
   flex-shrink: 0;
 }
 .itemside .info {
-  padding-left: 15px;
-  padding-right: 7px;
+  padding-left: 5px;
+
 }
 .itemside p {
   margin-bottom: 0;
@@ -854,7 +854,7 @@ a[class*=card]:hover .title {
 
 /* GRID STYLE PRODUCT ITEM */
 .card-product-grid {
-  margin-bottom: 20px;
+  margin-bottom: 15px;
 }
 .card-product-grid .img-wrap {
   border-radius: 0.2rem 0.2rem 0 0;
@@ -862,7 +862,10 @@ a[class*=card]:hover .title {
 }
 .card-product-grid .info-wrap {
   overflow: hidden;
-  padding: 18px 20px;
+  padding-top: 5px;
+  padding-right: 3px;
+  padding-left: 3px;
+
 }
 .card-product-grid .bottom-wrap {
   padding: 18px;
@@ -1395,7 +1398,7 @@ a[class*=card]:hover .title {
 /* ================ PAGES HEADER ================== */
 /* ====================== shopping-cart ==================== */
 .table-shopping-cart.table td, .table-shopping-cart.table th {
-  padding-left: 1.25rem;
+
   padding-right: 1.25rem;
 }
 .table-shopping-cart .price-wrap {

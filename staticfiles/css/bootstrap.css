@@ -2440,8 +2440,8 @@ fieldset:disabled a.btn {
 
 .btn-success {
   color: #fff;
-  background-color: #00b517;
-  border-color: #00b517;
+  background-color: #198754;
+  border-color: #198754;
 }
 .btn-success:hover {
   color: #fff;
@@ -4368,6 +4368,7 @@ input[type=button].btn-block {
 
 .card-body {
   flex: 1 1 auto;
+  padding: 1.25rem;
 }
 
 .card-title {
@@ -4563,7 +4564,7 @@ input[type=button].btn-block {
   display: flex;
   flex-wrap: wrap;
   padding: 0 0;
-  margin-bottom: 0;
+  margin-bottom: 1px;
   list-style: none;
   background-color: transparent;
   border-radius: 0.37rem;
@@ -4772,7 +4773,7 @@ a.badge-warning:focus, a.badge-warning.focus {
 
 .badge-danger {
   color: #fff;
-  background-color: #fa3434;
+  background-color: #EC0404;
 }
 a.badge-danger:hover, a.badge-danger:focus {
   color: #fff;

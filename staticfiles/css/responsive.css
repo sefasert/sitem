@@ -72,9 +72,32 @@
     flex-direction: column;
   }
 
+
   .col-md-3 .card {
     display: none;
   }
+
+  .col .price {
+    margin-left: 20px;
+    margin-right: 100px;
+  }
+
+  .info-wrap .fix-height {
+    height: 80px;
+  }
+
+  .price-wrap .price {
+    margin-left: 0px;
+    margin-right: 0px;
+  }
+
+  .sagsol {
+    margin-left: 10px;
+    margin-right: 30px;
+  }
+
+
+
 }
 
 /*# sourceMappingURL=responsive.css.map */
