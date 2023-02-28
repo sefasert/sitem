@@ -63,6 +63,7 @@ class Product(models.Model):
         ("INNOLUX", "innolux"),
         ("CHIMEI", "chimei"),
         ("VESTEL-SEG-REGAL", "vestel-seg-regal"),
+        ("MEGMEET", "megmeet"),
     }
 
     DURUM_CHOICE = {
