@@ -13,12 +13,12 @@ class Related_ProductInline(admin.TabularInline):
 
 class ProductAdmin(admin.ModelAdmin):
     prepopulated_fields = {"slug":("product_name",)}
-    list_display        = ("product_name", "category", "brand", "tags", "thumbnail", "price", "stock", "yeni", "is_available")
+    list_display        = ("product_name", "category", "brand", "thumbnail", "price", "stock", "yeni", "is_available")
     search_fields       = ("product_name", "description")
     list_per_page       = 20
     inlines             = [Related_ProductInline]
 
-    list_editable = ["tags", "yeni", "is_available"]
+    list_editable = ["yeni", "is_available"]
 
     def thumbnail(self, object):
         return format_html('<img src="{}" width="80"/>'.format(object.images.url))
