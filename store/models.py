@@ -133,7 +133,6 @@ class Related_Product(models.Model):
     benzerad  = models.CharField(max_length=200)
     benzerlink = models.CharField(max_length=200)
     benzerfiyat = models.IntegerField()
-    benzerstok  = models.IntegerField()
 
     def __str__(self):
         return self.product.product_name
