@@ -64,6 +64,7 @@ class Product(models.Model):
         ("CHIMEI", "chimei"),
         ("VESTEL-SEG-REGAL", "vestel-seg-regal"),
         ("MEGMEET", "megmeet"),
+        ("Vestel-Nexon", "vestel-nexon"),
     }
 
     DURUM_CHOICE = {
@@ -93,8 +94,6 @@ class Product(models.Model):
     webp          = models.ImageField(upload_to= "webp/products", blank=True, null=True)
     images2       = models.ImageField(upload_to= "photos2/products", blank=True, null=True)
     webp2         = models.ImageField(upload_to= "webp2/products", blank=True, null=True)
-    images3       = models.ImageField(upload_to= "photos3/products", blank=True, null=True)
-    webp3         = models.ImageField(upload_to= "webp3/products", blank=True, null=True)
     stock         = models.IntegerField()
     ekran         = models.CharField(max_length=10, choices=EKRAN_CHOICE, blank=True)
     tags          = models.TextField(max_length=1000, blank=True)
@@ -127,13 +126,6 @@ class Product(models.Model):
                 output_size = (1600, 1600)
                 img.thumbnail(output_size)
                 img.save(self.images2.path)
-
-        if self.images3:
-            img = Image.open(self.images3.path)
-            if img.height > 1600 or img.width > 1600:
-                output_size = (1600, 1600)
-                img.thumbnail(output_size)
-                img.save(self.images3.path)
 
 
 class Related_Product(models.Model):
