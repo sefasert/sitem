@@ -65,6 +65,7 @@ class Product(models.Model):
         ("VESTEL-SEG-REGAL", "vestel-seg-regal"),
         ("MEGMEET", "megmeet"),
         ("Vestel-Nexon", "vestel-nexon"),
+        ("FSP", "fsp"),
     }
 
     DURUM_CHOICE = {
